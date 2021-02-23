@@ -1,0 +1,38 @@
+/* HEADER */
+
+.nav-link {
+    color: #ffffff !important;
+    font-family: 'Exo 2', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: x-large !important;
+}
+
+.navbar a:hover {
+    color: #e84339 !important;
+    text-decoration: underline !important;
+}
+
+
+/* PAGE ESPACE MEMBRE */
+
+.nav-link {
+    color: #ffffff !important;
+    font-family: 'Exo 2', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: x-large !important;
+}
+
+.navbar a:hover {
+    color: #e84339 !important;
+    text-decoration: underline !important;
+}
+
+footer{
+    background:linear-gradient(to right,#000000, #0462D4);
+}
+
+
+#logoFacebook{ 
+width: 30%;
+height: 40%;
+}
