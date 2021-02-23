@@ -1,38 +1,79 @@
-/* HEADER */
-
-.nav-link {
-    color: #ffffff !important;
-    font-family: 'Exo 2', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: x-large !important;
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/roboto/RobotoCondensed-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Exo2";
+  src: url("../fonts/Exo2/Exo2-Regular.ttf") format("truetype");
+}
+/************************************
+  *********** Principal **************
+  ************************************/
+* {
+  box-sizing: border-box;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Exo2", sans-serif, serif;
+}
+body {
+  display: block;
+}
+.container-fluid {
+  padding: 0;
+}
+h1 {
+  font-family: "Roboto", sans-serif, sans-serif;
+}
+/************************************
+  *********** Header*** **************
+  ************************************/
+#bgHeader {
+  background-image: url("../images/imgHeader.jpeg");
+  background-size: cover;
+  height: 700px;
+  width: 100%;
+}
+#logo {
+  position: absolute;
+  left: 70%;
+  top: 25%;
+}
+.navbar {
+  height: 80px;
+  background: linear-gradient(to right, #000000, #0462d4);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.nav-item{
 
+    margin-right: 100px;
+    
+}
+#navItemAccueil{
+
+    margin-left: 100px;
+}
+a.nav-link {
+
+  font-family: "Roboto",serif, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  padding-bottom: 4px;
+}
 .navbar a:hover {
-    color: #e84339 !important;
-    text-decoration: underline !important;
+  color: #e84339 !important;
+  border-bottom:#e84339 solid 3px;
 }
 
-
-/* PAGE ESPACE MEMBRE */
-
-.nav-link {
-    color: #ffffff !important;
-    font-family: 'Exo 2', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: x-large !important;
+/************************************
+  *********** Footer *****************
+  ************************************/
+footer {
+  background: linear-gradient(to right, #000000, #0462d4);
 }
 
-.navbar a:hover {
-    color: #e84339 !important;
-    text-decoration: underline !important;
-}
-
-footer{
-    background:linear-gradient(to right,#000000, #0462D4);
-}
-
-
-#logoFacebook{ 
-width: 30%;
-height: 40%;
+#logoFacebook {
+  width: 30%;
+  height: 40%;
 }

@@ -1,12 +1,16 @@
 <header>
 	<!-- Background Image -->
-	<div class="p-5 text-center bg-image" style="background-image : url('assets/images/imgHeader.png'); height: 400px;"></div>
-
-	<div class="text-center bg-image" style="background-image : url('img/barreNav.png');">
-		<nav class="navbar navbar-expand-md navbar-dark bg-transparent">
-			<div class="container-fluid">
-				<ul class="navbar-nav nav-fill w-100">
-					<li class="nav-item">
+	<div id="bgHeader">
+		<img id="logo" src="assets/images/logoOriginal2.png" alt="logo">
+	</div>
+	<nav class="navbar navbar-expand-lg">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item" id="navItemAccueil">
 						<a class="nav-link" href="index.php?page=accueil">ACCUEIL</a>
 					</li>
 					<li class="nav-item">
@@ -20,6 +24,6 @@
 					</li>
 				</ul>
 			</div>
-	</div>
+		</div>
 	</nav>
 </header>

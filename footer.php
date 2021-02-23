@@ -15,7 +15,7 @@
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <a target="blank" href="https://fr-fr.facebook.com/pg/cpkingersheim/about/"><img id="logoFacebook" src="assets/images/faceBook.png" alt="facebook"></a>
+        <a target="blank" href="https://fr-fr.facebook.com/pg/cpkingersheim/about/"><img id="logoFacebook" src="assets/images/facebook.png" alt="facebook"></a>
       </div>
 
 

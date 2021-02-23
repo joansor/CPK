@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +12,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.1.0/mdb.min.css" rel="stylesheet" />
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.1.0/mdb.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>CPK</title>
 </head>
