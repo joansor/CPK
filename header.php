@@ -1,15 +1,20 @@
 <header>
 	<!-- Background Image -->
 	<div id="bgHeader">
-		<img id="logo" src="assets/images/logoOriginal2.png" alt="logo">
+		<img id="logo" src="assets/images/logoOriginal.png" alt="logo">
 	</div>
-	<nav class="navbar navbar-expand-lg">
+	<nav class="navbar navbar-expand-lg navbar-expand-md">
+		<!-- Container wrapper -->
 		<div class="container-fluid">
-			<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<!-- Toggle button -->
+			<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarCenteredExample" aria-controls="navbarCenteredExample" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars"></i>
 			</button>
-			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-				<ul class="navbar-nav">
+
+			<!-- Collapsible wrapper -->
+			<div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
+				<!-- Left links -->
+				<ul class="navbar-nav mb-2 mb-lg-0">
 					<li class="nav-item" id="navItemAccueil">
 						<a class="nav-link" href="index.php?page=accueil">ACCUEIL</a>
 					</li>
@@ -23,7 +28,10 @@
 						<a class="nav-link" href="index.php?page=espaceMembre">ESPACE MEMBRE</a>
 					</li>
 				</ul>
+				<!-- Left links -->
 			</div>
+			<!-- Collapsible wrapper -->
 		</div>
+		<!-- Container wrapper -->
 	</nav>
 </header>

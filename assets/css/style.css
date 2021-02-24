@@ -7,6 +7,14 @@
   src: url("../fonts/Exo2/Exo2-Regular.ttf") format("truetype");
 }
 /************************************
+  *********** Média Quéries **********
+  ************************************/
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 8px 0px 4px 0px;
+  }
+}
+/************************************
   *********** Principal **************
   ************************************/
 * {
@@ -31,9 +39,9 @@ h5 {
   *********** Header*** **************
   ************************************/
 #bgHeader {
-  background-image: url("../images/imgHeader.jpeg");
+  background-image: url("../images/imgHeader1.jpeg");
   background-size: cover;
-  height: 700px;
+  height: 500px;
   width: 100%;
 }
 #logo {
@@ -52,23 +60,24 @@ h5 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .nav-item {
-  margin-right: 100px;
-}
-#navItemAccueil {
-  margin-left: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 a.nav-link {
   font-family: "Roboto", serif, sans-serif;
   font-weight: bold;
   font-size: 18px;
   color: white;
-  padding-bottom: 4px;
+  padding: 8px 0px 4px 0px;
 }
 .navbar a:hover {
   color: #e84339 !important;
-  border-bottom: #e84339 solid 3px;
+  border-bottom: #e84339 solid 2px;
 }
-
+.navbar-collapse.justify-content-center.collapse.show{
+  text-align: center;
+  margin: 0;
+}
 .fas.fa-bars {
   color: #e84339;
 }
