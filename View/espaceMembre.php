@@ -1,3 +1,4 @@
+<div class="container col-lg-12 col-md-12 col-sd-12">
 	<div class="pageEspaceMembre">
 		<!-- Titre page Espace Membre -->
 		<h1 class="titreEspaceMembre" style="font-family: 'Exo 2', sans-serif; color: #e84339; font-weight: 700; font-size: 60; margin-left: 1%; margin-top: 1%;">Espace Membre</h1>
@@ -101,5 +102,4 @@
 			<button type="button" class="btn btn-primary" style="display: inline-block;">Accés gestion base de données des membres</button>
 		</div>
 	</div>
-
-
+</div>

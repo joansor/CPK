@@ -67,13 +67,19 @@ a.nav-link {
   border-bottom:#e84339 solid 3px;
 }
 
+.fas.fa-bars{
+  color: #e84339;
+}
 /************************************
   *********** Footer *****************
   ************************************/
 footer {
   background: linear-gradient(to right, #000000, #0462d4);
 }
+.pContact{
 
+  margin-left: 60px;
+}
 #logoFacebook {
     width: 70px;
     height: 70px;

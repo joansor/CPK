@@ -5,11 +5,13 @@
     <div class="row justify-content-between">
       <!--Grid column-->
       <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+        <div class="d-flex justify-content-center">
         <h5 class="text-uppercase">CONTACT</h5>
+        </div>
         <br>
-        <p>Cité Jardin,68260 Kingersheim </p>
-        <p>alain.genetay@cp-kingersheim.net</p>
-        <p>06.XX.XX.XX.XX</p>
+        <p class="pContact">Cité Jardin,68260 Kingersheim </p>
+        <p class="pContact">alain.genetay@cp-kingersheim.net</p>
+        <p class="pContact">06.XX.XX.XX.XX</p>
       </div>
       <!--Grid column-->
 
@@ -20,8 +22,6 @@
           <a target="blank" href="https://fr-fr.facebook.com/pg/cpkingersheim/about/"><img id="logoFacebook" src="assets/images/facebook.png" alt="facebook"></a>
         </div>
       </div>
-
-
 
       <!--Grid column-->
       <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
