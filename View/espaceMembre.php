@@ -24,7 +24,7 @@
 
 	<!-- Bloc Profil -->
 	<div class="p-5 text-center bg-image" style="margin-left: auto; margin-right: auto; margin-top:100px; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px; height: auto; width:900px">
-		<img src="img/imgPhoto.webp" style="display: inline-block; position: absolute; top: 5%; left:5%; height: 135px; width:105px ">
+		<img src="/assets/images/imgPhoto.webp" style="display: inline-block; position: absolute; top: 5%; left:5%; height: 135px; width:105px " alt="photo">
 		<table style="display: inline-block; margin-left: auto; margin-right:auto; border-right: 2px solid #e84339;">
 
 			<tr>

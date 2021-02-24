@@ -22,9 +22,10 @@ body {
 .container-fluid {
   padding: 0;
 }
-h1 {
+h1,h5 {
   font-family: "Roboto", sans-serif, sans-serif;
 }
+
 /************************************
   *********** Header*** **************
   ************************************/
@@ -74,6 +75,7 @@ footer {
 }
 
 #logoFacebook {
-  width: 30%;
-  height: 40%;
+    width: 70px;
+    height: 70px;
+    margin-top: 50px;
 }
