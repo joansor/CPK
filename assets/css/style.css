@@ -46,8 +46,10 @@ h5 {
 }
 #logo {
   position: absolute;
-  left: 70%;
+  left: 75%;
   top: 25%;
+  height: 300px;
+  width: 300px;
 }
 .navbar {
   background: linear-gradient(
