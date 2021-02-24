@@ -109,12 +109,9 @@ footer {
   height: 70px;
   margin-top: 50px;
 }
-  
-
-
-/* INFOS PRATIQUE */
-/* Mes titres  */
-
+/************************************
+  *********** Infos Pratiques ********
+  ************************************/
 #horaires{
   position: relative;
   bottom: 30px;
@@ -144,20 +141,11 @@ footer {
   position: relative;
   left: 35px;
 }
-
-
-
 /* Banniere */
-
-img{
+#banniere{
   width: 100%;
 }
-
-
-
 /* Tableaux et cellules  */
-
-
 .thg{
   font-family: "Roboto";
   color: rgb(4,98,212);
