@@ -9,9 +9,9 @@
         <h5 class="text-uppercase">CONTACT</h5>
         </div>
         <br>
-        <p class="pContact">Cité Jardin,68260 Kingersheim </p>
-        <p class="pContact">alain.genetay@cp-kingersheim.net</p>
-        <p class="pContact">06.XX.XX.XX.XX</p>
+        <img class="icons" src="assets/images/localrouge.png"><p class="pContact">Cité Jardin,68260 Kingersheim </p>
+        <img class="icons" src="assets/images/iconMail.png"><p class="pContact">alain.genetay@cp-kingersheim.net</p>
+        <img class="icons" src="assets/images/iconPhoneRouge.png"><p class="pContact">06.XX.XX.XX.XX</p>
       </div>
       <!--Grid column-->
 

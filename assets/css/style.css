@@ -22,7 +22,8 @@ body {
 .container-fluid {
   padding: 0;
 }
-h1,h5 {
+h1,
+h5 {
   font-family: "Roboto", sans-serif, sans-serif;
 }
 
@@ -41,22 +42,23 @@ h1,h5 {
   top: 25%;
 }
 .navbar {
-  height: 80px;
-  background: linear-gradient(to right, #000000, #0462d4);
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.14) 0%,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(232, 232, 232, 0) 100%
+    ),
+    #0462d4;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.nav-item{
-
-    margin-right: 100px;
-    
+.nav-item {
+  margin-right: 100px;
 }
-#navItemAccueil{
-
-    margin-left: 100px;
+#navItemAccueil {
+  margin-left: 100px;
 }
 a.nav-link {
-
-  font-family: "Roboto",serif, sans-serif;
+  font-family: "Roboto", serif, sans-serif;
   font-weight: bold;
   font-size: 18px;
   color: white;
@@ -64,24 +66,33 @@ a.nav-link {
 }
 .navbar a:hover {
   color: #e84339 !important;
-  border-bottom:#e84339 solid 3px;
+  border-bottom: #e84339 solid 3px;
 }
 
-.fas.fa-bars{
+.fas.fa-bars {
   color: #e84339;
 }
 /************************************
   *********** Footer *****************
   ************************************/
 footer {
-  background: linear-gradient(to right, #000000, #0462d4);
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #0462d4;
 }
-.pContact{
-
+.pContact {
   margin-left: 60px;
 }
+.icons {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
 #logoFacebook {
-    width: 70px;
-    height: 70px;
-    margin-top: 50px;
+  width: 70px;
+  height: 70px;
+  margin-top: 50px;
 }
