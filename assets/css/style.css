@@ -6,6 +6,7 @@
   font-family: "Exo2";
   src: url("../fonts/Exo2/Exo2-Regular.ttf") format("truetype");
 }
+
 /************************************
   *********** Média Quéries **********
   ************************************/
@@ -30,9 +31,10 @@ body {
 .container-fluid {
   padding: 0;
 }
-h1,
+h1,h2
 h5 {
   font-family: "Roboto", sans-serif, sans-serif;
+  color: #e84339;
 }
 
 /************************************
@@ -106,4 +108,77 @@ footer {
   width: 70px;
   height: 70px;
   margin-top: 50px;
+}
+  
+
+
+/* INFOS PRATIQUE */
+/* Mes titres  */
+
+#horaires{
+  position: relative;
+  bottom: 30px;
+  left: 69px;
+  margin-right: 200px;
+  color: rgb(4,98,212);
+}
+#localisation{
+  position: relative;
+  bottom: 10px;
+  left: 35px;
+  margin-right: 200px;
+  color: rgb(4,98,212);
+}
+#tarifs{
+  position: relative;
+  bottom: 30px;
+  left: 69px;
+  margin-right: 200px;
+  color: rgb(4,98,212);
+}
+.cercle {
+  width:20px;
+  height: 20px;
+  border-radius: 20px;
+  background:rgb(232,67,57);
+  position: relative;
+  left: 35px;
+}
+
+
+
+/* Banniere */
+
+img{
+  width: 100%;
+}
+
+
+
+/* Tableaux et cellules  */
+
+
+.thg{
+  font-family: "Roboto";
+  color: rgb(4,98,212);
+  font-size: 30px;
+ 
+}
+.tdg{
+  font-family: "Roboto";
+  color: rgb(4,98,212);
+  font-size: 30px;
+  font-weight: normal;
+  
+}
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#button1{
+  margin-left: 40px;
+}
+#button2{
+  margin-left: 40px;
 }
