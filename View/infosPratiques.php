@@ -2,9 +2,11 @@
 <a id="button2" class="btn btn-primary btn-lg" href="#" role="button">gestion de la BDD du calendrier du club</a>
 <br>
 <br>
-<img src="assets/images/banniere.png" alt="banniere">
-<div class="cercle"></div>
-<h2 id="horaires">Horaires des entrainements :</h2>
+<img id="banniere" src="assets/images/banniere.png" alt="banniere">
+<div class="sous-titre">
+  <div class="cercle"></div>
+  <h2>Horaires des entrainements :</h2>
+</div>
 <a id="button1" class="btn btn-primary btn-lg" href="#" role="button">Télécharger le calendriers des rencontres (pdf)</a>
 <br><br>
 <table class="table table-hover">
@@ -38,10 +40,10 @@
 <br>
 <br><br>
 <br>
-
-<div class="cercle"></div>
-<h2 id="tarifs">Tarifs de la license sportive :</h2>
-
+<div class="sous-titre">
+  <div class="cercle"></div>
+    <h2>Tarifs de la license sportive :</h2>
+</div>
 <table class="table table-hover">
   <thead>
     <tr class="table-primary">
@@ -66,9 +68,9 @@
 <br><br>
 <br>
 <br>
-
-<div class="cercle">
-  <h2 id="localisation">Localisation</h2>
+<div class="sous-titre">
+  <div class="cercle"></div>
+  <h2>Localisation</h2>
 </div>
 <br>
 <br>

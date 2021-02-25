@@ -19,10 +19,9 @@
 
 <body>
     <div class="container-fluid">
-
         <?php include('pdo.php');
         include('header.php'); ?>
-        <div class="container">
+        <div class="container col-lg-12 col-md-12 col-sd-12">
             <?php if (!isset($_GET['page'])) $_GET['page'] = 'accueil';
 
             if (file_exists('View/' . $_GET['page'] . '.php')) {
