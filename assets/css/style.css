@@ -31,7 +31,7 @@ body {
 .container-fluid {
   padding: 0;
 }
-h1,h3,h4
+h1,h4
 h5 {
   font-family: "Roboto", sans-serif, sans-serif;
   color: #e84339;
@@ -48,6 +48,12 @@ h2{
   margin-left: 5px;
   text-transform: capitalize;
   
+}
+h3{
+  color: black;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 18px;
 }
 .sous-titre{
   display: flex;
@@ -180,4 +186,18 @@ img#photoGroup{
   padding-right: 0px;
   background: rgba(48, 71, 94, 0.452);
   border-radius: 1px;
+}
+
+#nomMembre{
+
+  font-size: 14px;
+}
+#capt{
+
+  color: white;
+  font-weight: bold;
+  background-color: #e84339;
+  border-radius: 2px;
+  height: 25px;
+  text-align: center;
 }
