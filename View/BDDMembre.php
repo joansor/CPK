@@ -49,6 +49,16 @@
 		</div>
 		<div class="col-auto">
 			<div class="form-outline">
+				<select id="Sexe" class="form-control">
+					<option value="null"> </option>
+					<option value="Benjamin">Homme</option>
+					<option value="Minime">Femme</option>
+				</select>
+				<label class="form-label" for="Sexe">Sexe</label>
+			</div>
+		</div>
+		<div class="col-auto">
+			<div class="form-outline">
 				<input type="text" id="Adresse" class="form-control" />
 				<label class="form-label" for="Adresse">Adresse</label>
 			</div>
@@ -69,6 +79,12 @@
 			<div class="form-outline">
 				<input type="tel" id="Tel" class="form-control" />
 				<label class="form-label" for="Tel">Tel</label>
+			</div>
+		</div>
+		<div class="col-auto">
+			<div class="form-outline">
+				<input type="telf" id="Telf" class="form-control" />
+				<label class="form-label" for="Telf">Tel fixe</label>
 			</div>
 		</div>
 		<div class="col-auto">
@@ -190,6 +206,18 @@
 	</form>
 
 	<!-- Bloc BDD Membres -->
+
+
+	<?php
+
+	$db = new PDO('mysql:host=Localhost;dbname=cpk', 'root', '');
+
+	$requete = "SELECT * FROM `membres`";
+
+	$tblmb = $db->query($requete);
+
+	?>
+
 	<div class="p-5 text-center bg-image" style="margin: 2%; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px;">
 		<div class="table-responsive">
 			<table class="table table-striped table-hover table-sm">
@@ -200,10 +228,12 @@
 						<th scope="col">Nom</th>
 						<th scope="col">Prénom</th>
 						<th scope="col">Date de Naissance</th>
+						<th scope="col">Sexe</th>
 						<th scope="col">Adresse</th>
 						<th scope="col">CP</th>
 						<th scope="col">Ville</th>
 						<th scope="col">Tel</th>
+						<th scope="col">Tel fixe</th>
 						<th scope="col">Représentant</th>
 						<th scope="col">Tel représentant</th>
 						<th scope="col">Email représentant</th>
@@ -222,85 +252,39 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">Bourne.jason@wanadoo.fr</th>
-						<td>********</td>
-						<td>Bourne</td>
-						<td>Jason</td>
-						<td>15/06/2005</td>
-						<td>15 rue des Lilas</td>
-						<td>68460</td>
-						<td>Kingersheim</td>
-						<td>0606060606</td>
-						<td>Bourne Patrick</td>
-						<td>0707070707</td>
-						<td>Bourne.patrick@aol.fr</td>
-						<td>15 rue des Lilas</td>
-						<td>68460</td>
-						<td>Kingersheim</td>
-						<td>Photo.jpeg</td>
-						<td>6836774</td>
-						<td>1700</td>
-						<td>Cadet</td>
-						<td>Cadet</td>
-						<td>Membre</td>
-						<td> </td>
-						<td>Oui</td>
-						<td>Bouton Modifier</td>
-					</tr>
-					<tr>
-						<th scope="row">Bourne.patrick@wanadoo.fr</th>
-						<td>********</td>
-						<td>Bourne</td>
-						<td>Patrick</td>
-						<td>22/12/1985</td>
-						<td>15 rue des Lilas</td>
-						<td>68460</td>
-						<td>Kingersheim</td>
-						<td>0606060606</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>Photo.jpeg</td>
-						<td>6836561</td>
-						<td>2806</td>
-						<td>Senior</td>
-						<td>Senior1</td>
-						<td>Admin</td>
-						<td>Président</td>
-						<td>Oui</td>
-						<td>Bouton Modifier</td>
-					</tr>
-					<tr>
-						<th scope="row">Dupont.Jean@wanadoo.fr</th>
-						<td>********</td>
-						<td>Dupont</td>
-						<td>Jean</td>
-						<td>15/09/1968</td>
-						<td>106 chemin des Plots</td>
-						<td>68150</td>
-						<td>Queenersheim</td>
-						<td>0606060606</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>Photo.jpeg</td>
-						<td>6889474</td>
-						<td>1260</td>
-						<td>Senior</td>
-						<td>Loisir</td>
-						<td>Editeur</td>
-						<td>Trésorier</td>
-						<td>Oui</td>
-						<td>Bouton Modifier</td>
-					</tr>
-				</tbody>
+					<?php while ($ligne = $tblmb->fetch()) { ?>
+						<tr>
+							<td><?php echo $ligne['idMembres']; ?></td>
+							<td><?php echo $ligne['password']; ?></td>
+							<td><?php echo $ligne['nomMembre']; ?></td>
+							<td><?php echo $ligne['prenomMembre']; ?></td>
+							<td><?php echo $ligne['dateNaissance']; ?></td>
+							<td><?php echo $ligne['sexe']; ?></td>
+							<td><?php echo $ligne['adresse']; ?></td>
+							<td><?php echo $ligne['cp']; ?></td>
+							<td><?php echo $ligne['ville']; ?></td>
+							<td><?php echo $ligne['telephoneMobile']; ?></td>
+							<td><?php echo $ligne['telFixe']; ?></td>
+							<td><?php echo $ligne['nomRepresentant']; ?></td>
+							<td><?php echo $ligne['telRepresentant']; ?></td>
+							<td><?php echo $ligne['mailRepresentant']; ?></td>
+							<td><?php echo $ligne['adresseRepresentant']; ?></td>
+							<td><?php echo $ligne['cpRepresentant']; ?></td>
+							<td><?php echo $ligne['villeRepresentant']; ?></td>
+							<td><?php echo $ligne['photo']; ?></td>
+							<td><?php echo $ligne['NLicence']; ?></td>
+							<td><?php echo $ligne['pointsClassement']; ?></td>
+							<td><?php echo $ligne['categorie']; ?></td>
+							<td><?php echo $ligne['equipe']; ?></td>
+							<td><?php echo $ligne['nivResponsabilite']; ?></td>
+							<td><?php echo $ligne['MembresComite']; ?></td>
+							<td><?php echo $ligne['payementAdhesion']; ?></td>
+
+
+						</tr>
+					<?php } ?>
+
+
 			</table>
 		</div>
 	</div>
