@@ -27,7 +27,7 @@
 <br><br>
  <table class="table table-hover">
   <thead>
-    <tr class="table-primary">
+    <tr>
       <th class="thg" scope="col">BENJAMIN</th>
       <th class="thg" scope="col">MINIME</th>
       <th class="thg" scope="col">CADET</th>
@@ -61,9 +61,9 @@
 <h2 id="tarifs">Tarifs de la license sportive :</h2>
 
 
-<table class="table table-hover">
+<table>
   <thead>
-    <tr class="table-primary">
+    <tr>
       <th  class="thg" scope="col">BENJAMIN</th>
       <th  class="thg" scope="col">MINIME</th>
       <th  class="thg" scope="col">CADET</th>
