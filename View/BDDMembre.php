@@ -51,8 +51,8 @@
 			<div class="form-outline">
 				<select id="Sexe" class="form-control">
 					<option value="null"> </option>
-					<option value="Benjamin">Homme</option>
-					<option value="Minime">Femme</option>
+					<option value="Homme">Homme</option>
+					<option value="Femme">Femme</option>
 				</select>
 				<label class="form-label" for="Sexe">Sexe</label>
 			</div>
