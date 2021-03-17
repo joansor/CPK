@@ -10,8 +10,8 @@
         </div>
         <br>
         <img class="icons" src="assets/images/localrouge.png"><p class="pContact">Cité Jardin,68260 Kingersheim </p>
-        <img class="icons" src="assets/images/iconMail.png"><p class="pContact">alain.genetay@cp-kingersheim.net</p>
-        <img class="icons" src="assets/images/iconPhoneRouge.png"><p class="pContact">06.XX.XX.XX.XX</p>
+        <img class="icons" src="assets/images/iconMail.png"><p class="pContact">alain.genetay@gmail.com</p>
+        <img class="icons" src="assets/images/iconPhoneRouge.png"><p class="pContact">03.89.53.56.58</p>
       </div>
       <!--Grid column-->
 
