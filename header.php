@@ -1,7 +1,7 @@
 <header>
 	<!-- Background Image -->
 	<div id="bgHeader">
-		<img id="logo" src="assets/images/logo.svg" alt="logo">
+		<img id="logo" src="assets/images/logo1.svg" alt="logo">
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-expand-md">
 		<!-- Container wrapper -->

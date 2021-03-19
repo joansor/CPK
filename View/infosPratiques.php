@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 
-<h1>INFOS PRATIQUES</h1> <a id="button2" class="btn btn-primary btn-lg" href="#" role="button">gestion de la BDD du calendrier du club</a>
+<h1>INFOS PRATIQUES</h1> <a id="button2">gestion de la BDD du calendrier du club</a>
 
 <br>
 <br>
@@ -23,15 +23,16 @@
 
  <div class="cercle"></div>
  <h2 id="horaires">Horaires des entrainements :</h2>
- <a id="button1" class="btn btn-primary btn-lg" href="#" role="button">Télécharger le calendriers des rencontres (pdf)</a>
+ <a id="button1">Télécharger le calendriers des rencontres (pdf)</a>
 <br><br>
  <table class="table table-hover">
   <thead>
-    <tr>
+    <tr class="table-primary">
       <th class="thg" scope="col">BENJAMIN</th>
       <th class="thg" scope="col">MINIME</th>
       <th class="thg" scope="col">CADET</th>
-      <th class="thg" scope="col">SENIOR</th>
+      <th class="thg" scope="col">SENIOR 1 et 2</th>
+      <th class="thg" scope="col">SENIOR </th>
       <th  class="thg"scope="col">LOISIR</th>
     </tr>
   </thead>
@@ -41,7 +42,8 @@
       <td class="tdg"><br> Mecredi 18h-20h <br> </td>
       <td class="tdg"><br> Mecredi 18h-20h <br></td>
       <td class="tdg"><br>  Mecredi 20h-22h <br></td>
-      <td class="tdg"> <br> Samedi 9h-11h <br> </td>
+      <td class="tdg"><br>Mardi-Jeudi 20-22h <br></td>
+      <td class="tdg"> <br> Dimanche 9h-11h <br> </td>
     </tr>
     <tr>
       <td  class="tdg">  11-12 ans</td>
@@ -61,23 +63,21 @@
 <h2 id="tarifs">Tarifs de la license sportive :</h2>
 
 
-<table>
+<table class="table table-hover">
   <thead>
-    <tr>
-      <th  class="thg" scope="col">BENJAMIN</th>
-      <th  class="thg" scope="col">MINIME</th>
-      <th  class="thg" scope="col">CADET</th>
-      <th   class="thg"scope="col">SENIOR</th>
+    <tr class="table-primary">
+      <th  class="thg" scope="col">JEUNES</th>
+      <th  class="thg" scope="col">SENIOR</th>
       <th  class="thg" scope="col">LOISIR</th>
+ 
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="tdg">100€/ans</td>
-      <td class="tdg">100€/ans</td>
-      <td class="tdg">100€/ans</td>
-      <td class="tdg">120€/ans</td>
-      <td class="tdg">80€/ans</td>
+      <td class="tdg">60€/ans</td>
+      <td class="tdg">60€/ans</td>
+      <td class="tdg">40€/ans</td>
+  
     </tr>
   </tbody>
 </table>

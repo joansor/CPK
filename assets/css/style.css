@@ -161,13 +161,13 @@ img{
 .thg{
   font-family: "Roboto";
   color: rgb(4,98,212);
-  font-size: 30px;
+  font-size: 20px;
  
 }
 .tdg{
   font-family: "Roboto";
   color: rgb(4,98,212);
-  font-size: 30px;
+  font-size: 20px;
   font-weight: normal;
   
 }
@@ -177,8 +177,16 @@ table{
 }
 
 #button1{
-  margin-left: 40px;
+  background-color: rgb(4,98,212);
+  color: white;
+  padding: 0.2%;
+  border-radius: 5px;
+  cursor: pointer;
 }
 #button2{
-  margin-left: 40px;
+background-color: rgb(4,98,212);
+color: white;
+padding: 0.2%;
+border-radius: 5px;
+cursor: pointer;
 }
