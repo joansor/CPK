@@ -208,11 +208,13 @@
 	<!-- Bloc BDD Membres -->
 
 
-	 <?php
+	<?php
+
+	$db = new PDO('mysql:host=Localhost;dbname=cpk', 'root', '');
 
 	$requete = "SELECT * FROM `membres`";
 
-	$tblmb = $dbh->query($requete);
+	$tblmb = $db->query($requete);
 
 	?>
 
