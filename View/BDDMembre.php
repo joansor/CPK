@@ -214,14 +214,16 @@
 	<!-- Bloc BDD Membres -->
 
 
-	 <?php
+	<?php
+
+	$db = new PDO('mysql:host=Localhost;dbname=cpk', 'root', '');
 
 	//$requete = "SELECT * FROM `membres`";
 	$requete = "SELECT * FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant";
 
 
 
-	$tblmb = $dbh->query($requete);
+	$tblmb = $db->query($requete);
 
 	?>
 
