@@ -90,7 +90,13 @@
 		<div class="col-auto">
 			<div class="form-outline">
 				<input type="text" id="representant" class="form-control" />
-				<label class="form-label" for="representant">Représentant</label>
+				<label class="form-label" for="nomrepresentant">Nom Représentant</label>
+			</div>
+		</div>
+		<div class="col-auto">
+			<div class="form-outline">
+				<input type="text" id="representant" class="form-control" />
+				<label class="form-label" for="prenrepresentant">Prénom Représentant</label>
 			</div>
 		</div>
 		<div class="col-auto">
@@ -207,17 +213,14 @@
 
 	<!-- Bloc BDD Membres -->
 
-
 	<?php
 
-	$db = new PDO('mysql:host=Localhost;dbname=cpk', 'root', '');
+	//$requete = "SELECT * FROM `membres`";
+	$requete = "SELECT * FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant";
 
-	$requete = "SELECT * FROM `membres`";
-
-	$tblmb = $db->query($requete);
+	$tblmb = $dbh->query($requete);
 
 	?>
-
 	<div class="p-5 text-center bg-image" style="margin: 2%; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px;">
 		<div class="table-responsive">
 			<table class="table table-striped table-hover table-sm">
@@ -234,7 +237,8 @@
 						<th scope="col">Ville</th>
 						<th scope="col">Tel</th>
 						<th scope="col">Tel fixe</th>
-						<th scope="col">Représentant</th>
+						<th scope="col">Nom Représentant</th>
+						<th scope="col">Prénom Représentant</th>
 						<th scope="col">Tel représentant</th>
 						<th scope="col">Email représentant</th>
 						<th scope="col">Adresse représentant</th>
@@ -266,7 +270,8 @@
 							<td><?php echo $ligne['telephoneMobile']; ?></td>
 							<td><?php echo $ligne['telFixe']; ?></td>
 							<td><?php echo $ligne['nomRepresentant']; ?></td>
-							<td><?php echo $ligne['telRepresentant']; ?></td>
+							<td><?php echo $ligne['prenomRepresentant']; ?></td>
+							<td><?php echo $ligne['telephoneMobile']; ?></td>
 							<td><?php echo $ligne['mailRepresentant']; ?></td>
 							<td><?php echo $ligne['adresseRepresentant']; ?></td>
 							<td><?php echo $ligne['cpRepresentant']; ?></td>
@@ -274,17 +279,13 @@
 							<td><?php echo $ligne['photo']; ?></td>
 							<td><?php echo $ligne['NLicence']; ?></td>
 							<td><?php echo $ligne['pointsClassement']; ?></td>
-							<td><?php echo $ligne['categorie']; ?></td>
-							<td><?php echo $ligne['equipe']; ?></td>
+							<td><?php echo $ligne['categories']; ?></td>
+							<td><?php echo $ligne['EquipeNom']; ?></td>
 							<td><?php echo $ligne['nivResponsabilite']; ?></td>
 							<td><?php echo $ligne['MembresComite']; ?></td>
 							<td><?php echo $ligne['payementAdhesion']; ?></td>
-
-
 						</tr>
 					<?php } ?>
-
-
 			</table>
 		</div>
 	</div>
