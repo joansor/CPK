@@ -32,6 +32,7 @@ while ($resultListEquipe = $executeListEquipe->fetch()) { // Parcours les résul
 
                 while ($resultMembreEquipe = $executeMembreEquipe->fetch()) { ?>
 
+                    
                         <div class ="row mt-3">
                             <div id="nomMembre" class="col-md-5"><?php
                             echo $resultMembreEquipe['nomMembre'] . " " . $resultMembreEquipe['prenomMembre'];?> </div>
@@ -39,6 +40,7 @@ while ($resultListEquipe = $executeListEquipe->fetch()) { // Parcours les résul
                                 <div id="capt" class ="col-md-1">C</div>
                             <?php } ?>
                         </div>
+                   
                 <?php } ?>
             </div>
         </div>
