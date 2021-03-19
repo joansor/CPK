@@ -31,41 +31,12 @@ body {
 .container-fluid {
   padding: 0;
 }
-h1,h4
+h1,h2
 h5 {
   font-family: "Roboto", sans-serif, sans-serif;
   color: #e84339;
 }
-h1{
-  margin-top: 20px;
-  font-size: 30px;
-  font-weight: bold;
-}
-h2{
-  color: rgb(4,98,212);
-  font-weight: bold;
-  font-size: 25px;
-  margin-left: 5px;
-  text-transform: capitalize;
-  
-}
-h3{
-  color: black;
-  font-weight: bold;
-  text-transform: capitalize;
-  font-size: 18px;
-}
-.sous-titre{
-  display: flex;
-  flex-direction: row;
-}
-.cercle {
-  width:10px;
-  height: 10px;
-  border-radius: 10px;
-  background:rgb(232,67,57);
-  margin-top: 15px;
-}
+
 /************************************
   *********** Header *****************
   ************************************/
@@ -138,66 +109,84 @@ footer {
   height: 70px;
   margin-top: 50px;
 }
-/************************************
-  *********** Infos Pratiques ********
-  ************************************/
-/* Banniere */
-#banniere{
-   width: 100%;
+  
+
+
+/* INFOS PRATIQUE */
+/* Mes titres  */
+
+#horaires{
+  position: relative;
+  bottom: 30px;
+  left: 69px;
+  margin-right: 200px;
+  color: rgb(4,98,212);
 }
+#localisation{
+  position: relative;
+  bottom: 10px;
+  left: 35px;
+  margin-right: 200px;
+  color: rgb(4,98,212);
+}
+#tarifs{
+  position: relative;
+  bottom: 30px;
+  left: 69px;
+  margin-right: 200px;
+  color: rgb(4,98,212);
+}
+.cercle {
+  width:20px;
+  height: 20px;
+  border-radius: 20px;
+  background:rgb(232,67,57);
+  position: relative;
+  left: 35px;
+}
+
+
+
+/* Banniere */
+
+img{
+  width: 100%;
+}
+
+
+
 /* Tableaux et cellules  */
-.thg,.tdg{
+
+
+.thg{
   font-family: "Roboto";
   color: rgb(4,98,212);
-  font-size: 30px;
+  font-size: 20px;
+ 
+}
+.tdg{
+  font-family: "Roboto";
+  color: rgb(4,98,212);
+  font-size: 20px;
+  font-weight: normal;
+  
 }
 table{
   margin-left: auto;
   margin-right: auto;
 }
-#button1,#button2{
-  margin-left: 40px;
-}
 
-/************************************
-  *********** Les équipes ***********
-  ************************************/
-
-#support{
-height: 250px;
-border-radius: 20px;
-background-color: #F7F7F7;
-}
-
-img#photoGroup{
-
-  width: 380px;
-  height: 200px;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-#separation{
-
-  width: 5px;
-  height: 210px;
-  margin-top: 20px;
-  margin-right: 50px;
-  padding-left: 0px;
-  padding-right: 0px;
-  background: rgba(48, 71, 94, 0.452);
-  border-radius: 1px;
-}
-
-#nomMembre{
-
-  font-size: 14px;
-}
-#capt{
-
+#button1{
+  background-color: rgb(4,98,212);
   color: white;
-  font-weight: bold;
-  background-color: #e84339;
-  border-radius: 2px;
-  height: 25px;
-  text-align: center;
+  padding: 0.2%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#button2{
+background-color: rgb(4,98,212);
+color: white;
+padding: 0.2%;
+border-radius: 5px;
+cursor: pointer;
 }
