@@ -1,4 +1,5 @@
 <?php
+/***************** Connexion******************************/
 if (isset($_POST['email']) && isset($_POST['password'])) {
 
     $email = $_POST['email'];
@@ -13,7 +14,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
         if ($reponse['mail'] === $email && $reponse['password'] ===  $password) { // nom d'utilisateur et mot de passe correctes
             session_start();
-            echo "connexion";
+            $_SESSION["connected"]= true;
             $_SESSION['nivResponsabilite'] = $reponse['nivResponsabilite'];
             var_dump($_SESSION['nivResponsabilite']);
             $_SESSION['mail'] = $reponse['mail'];
@@ -28,7 +29,19 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         echo "Utilisateur ou mot de passe vide.";
         // utilisateur ou mot de passe vide
     }
-} else {
+}
+else if(isset($_POST['deco'])){ // Déconnexion 
+
+    $_SESSION["connected"]= false;
+    $_SESSION['mail'] = "";
+    $_SESSION['nivResponsabilite'] = "";
+    session_destroy();
+    header('Location: http://localhost/CPK/index.php?page=accueil');
+
+}
+else {
+
     echo "Erreur mot de passe ou identifiant.";
     header('Location: http://localhost/CPK/index.php?page=accueil');
 }
+

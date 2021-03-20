@@ -114,6 +114,17 @@ a.nav-link {
 .fas.fa-bars {
   color: #e84339;
 }
+#deco{
+  font-family: "Roboto", serif, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  padding: 8px 4px 4px 4px;
+  /* background: rgba(0, 0, 0, 0.0); */
+  border: none;
+
+}
+
 /************************************
   *********** Footer *****************
   ************************************/
@@ -201,3 +212,8 @@ img#photoGroup{
   height: 25px;
   text-align: center;
 }
+
+/*************************************
+  *********** espaceMembre ***********
+  ***********************************/
+

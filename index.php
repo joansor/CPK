@@ -18,6 +18,7 @@
 <body>
     <div class="container-fluid">
         <?php include('pdo.php');
+        session_start();
         include('header.php'); ?>
         <div class="container col-lg-12 col-md-12 col-sd-12">
             <?php if (!isset($_GET['page'])) $_GET['page'] = 'accueil';
