@@ -1,38 +1,37 @@
 <?php
-
-$db = new PDO('mysql:host=Localhost;dbname=cpk', 'root', '');
-
-$requete = "SELECT `mail`, `password`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp` ,`ville`, `telephoneMobile`, `photo`, `NLicence`, `nivResponsabilite` ,`MembresComite` FROM `membres`";
-
-$tblprd = $db->query($requete);
-
+session_start();
+if (isset($_SESSION['mail'])) {
+	$user = $_SESSION['mail'];
+	// afficher un message
+	echo "Bonjour". $user .", vous êtes connecté";
+}
 ?>
-
 <div class="pageEspaceMembre">
 	<!-- Titre page Espace Membre -->
-	<h1 class="titreEspaceMembre" style="font-family: 'Exo 2', sans-serif; color: #e84339; font-weight: 700; font-size: 60; margin-left: 1%; margin-top: 1%;">Espace Membre</h1>
-
+	<h1>Espace Membre</h1>
 	<!-- Bloc Connexion -->
-	<div class="p-5 text-center bg-image" style="margin-left: auto; margin-right: auto; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px; height: 200px; width:500px">
-		<div class="form-outline">
-			<input type="email" id="typeEmail" class="form-control" />
-			<label class="form-label" for="typeEmail">Identifiant</label>
-		</div>
-		<div class="form-outline">
-			<input type="password" id="typePassword" class="form-control" />
-			<label class="form-label" for="typePassword">Mot de passe</label>
-		</div>
-		<div style="display: inline-block;">
-			<div class="form-check" style="display: inline-block; margin-right: 25px;">
-				<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
-				<label class="form-check-label" for="flexCheckChecked">Se souvenir de moi</label>
+	<form action="http://localhost/CPK/index.php?page=traitement" method="post">
+		<div class="p-5 text-center bg-image" style="margin-left: auto; margin-right: auto; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px; height: 200px; width:500px">
+			<div class="form-outline">
+				<input type="email" name="email" id="typeEmail" class="form-control" required />
+				<label class="form-label" for="typeEmail">Identifiant</label>
 			</div>
-			<button type="button" class="btn btn-primary" style="display: inline-block;" onclick="getProfil()">Connexion</button>
+			<div class="form-outline">
+				<input type="password" name="password" id="typePassword" class="form-control" required />
+				<label class="form-label" for="typePassword">Mot de passe</label>
+			</div>
+			<div style="display: inline-block;">
+				<div class="form-check" style="display: inline-block; margin-right: 25px;">
+					<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+					<label class="form-check-label" for="flexCheckChecked">Se souvenir de moi</label>
+				</div>
+				<button type="submit" class="btn btn-primary" style="display: inline-block;">Connexion</button>
+			</div>
 		</div>
-	</div>
+	</form>
 </div>
 
-<!-- Bloc Profil -->
+<!-- Bloc Profil
 <div id="profil" class="p-5 text-center bg-image" style="margin-left: auto; margin-right: auto; margin-top:100px; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px; height: auto; width:900px; visibility: hidden;">
 	<img src="/assets/images/imgPhoto.webp" style="display: inline-block; position: absolute; top: 25%; right:25%; height: 135px; width:105px " alt="photo">
 	<table style="display: inline-block; margin-left: auto; margin-right:auto; border-right: 2px solid #e84339;">
@@ -99,42 +98,8 @@ $tblprd = $db->query($requete);
 	</table>
 </div>
 <!-- Bloc bouton accés BDD -->
-<div class="p-5 text-center bg-image" style="margin-left: auto; margin-right: auto;">
+<!-- <div class="p-5 text-center bg-image" style="margin-left: auto; margin-right: auto;">
 	<div>
 		<a href="index.php?page=BDDMembre"><button type="button" class="btn btn-primary" style="display: inline-block;"> Accés gestion base de données des membres</button></a>
 	</div>
-</div>
-
-<script>
-	function getProfil() {
-		document.getElementById("profil").style.visibility = "Initial";
-	}
-</script>
-
-
-<!-- A FAIRE
-Lorsqu'on clique sur "connexion" : 
-	Get function () {
-		IF((mot de passe rentré) = (mot de passe correspondant à l'ID entrée dans la BDD)) {
-			
-			getProfil() // On rend visible le bloc profil
-			setProfil() // On modifie le profil
-		}
-	}
-
-	function setProfil() {
-< ?php //On lance une requete SQL pour sélectionné la ligne avec les infos du membre ?>
-		//Puis, les infos du membre sont chargées dans les cellules avec pour ordre : 
-				<td>< ?php echo $ligne['nomMembre']; ?></td>
-				<td>< ?php echo $ligne['NLicence']; ?></td>
-				<td>< ?php echo $ligne['adresse']; ?></td>
-				...
-	}
-
-
-A RAJOUTER DANS REQUETE PDO : 
-	SELECTEUR = `pointClassement` FROM Membres / `nomRepresentant` FROM representant / `nomEquipe` FROM equipes  
-	CONDITION = WHERE `password` = Membre.mail.password FROM Membre.mail (si le mdp rentré correspond au mdp lié au mail rentré dans la BDD, alors on charge le profil)
-
-
--->
+</div> -->
