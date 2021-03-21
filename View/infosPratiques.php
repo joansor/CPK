@@ -40,6 +40,8 @@
   <div class="cercle"></div>
   <h2>Tarifs de la license sportive :</h2>
 </div>
+<br>
+<br>
 <table class="table table-hover">
   <thead>
     <tr class="table-primary">
@@ -57,7 +59,6 @@
   </tbody>
 </table>
 <br>
-<br><br>
 <br>
 <br>
 <div class="sous-titre">
@@ -66,5 +67,5 @@
 </div>
 <br>
 <br>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10722.59717512355!2d7.3373927!3d47.7882481!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x16b28d71a277f81!2sSalle%20Cit%C3%A9%20Jardin!5e0!3m2!1sfr!2sfr!4v1613993971957!5m2!1sfr!2sfr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<iframe class="mb-5" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10722.59717512355!2d7.3373927!3d47.7882481!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x16b28d71a277f81!2sSalle%20Cit%C3%A9%20Jardin!5e0!3m2!1sfr!2sfr!4v1613993971957!5m2!1sfr!2sfr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 <br>
