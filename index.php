@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,10 +15,10 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>CPK</title>
 </head>
-
 <body>
     <div class="container-fluid">
         <?php include('pdo.php');
+        session_start();
         include('header.php'); ?>
         <div class="container col-lg-12 col-md-12 col-sd-12">
             <?php if (!isset($_GET['page'])) $_GET['page'] = 'accueil';

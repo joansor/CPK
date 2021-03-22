@@ -10,7 +10,6 @@
 			<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarCenteredExample" aria-controls="navbarCenteredExample" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars"></i>
 			</button>
-
 			<!-- Collapsible wrapper -->
 			<div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
 				<!-- Left links -->
@@ -27,6 +26,13 @@
 					<li class="nav-item">
 						<a class="nav-link" href="index.php?page=espaceMembre">ESPACE MEMBRE</a>
 					</li>
+					<?php if (isset($_SESSION['mail'])) { ?>
+					<li class="nav-item">
+					<form action="http://localhost/CPK/index.php?page=traitement" method="post">
+					<input id="deco" class="btn btn-danger" type="submit" name="deco" value="Déconnexion" />
+					</form>
+					</li>
+					<?php  } ?>
 				</ul>
 				<!-- Left links -->
 			</div>

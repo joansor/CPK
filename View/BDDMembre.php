@@ -213,20 +213,14 @@
 
 	<!-- Bloc BDD Membres -->
 
-
 	<?php
-
-	$db = new PDO('mysql:host=Localhost;dbname=cpk', 'root', '');
 
 	//$requete = "SELECT * FROM `membres`";
 	$requete = "SELECT * FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant";
 
-
-
-	$tblmb = $db->query($requete);
+	$tblmb = $dbh->query($requete);
 
 	?>
-
 	<div class="p-5 text-center bg-image" style="margin: 2%; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px;">
 		<div class="table-responsive">
 			<table class="table table-striped table-hover table-sm">
@@ -290,12 +284,8 @@
 							<td><?php echo $ligne['nivResponsabilite']; ?></td>
 							<td><?php echo $ligne['MembresComite']; ?></td>
 							<td><?php echo $ligne['payementAdhesion']; ?></td>
-
-
 						</tr>
 					<?php } ?>
-
-
 			</table>
 		</div>
 	</div>

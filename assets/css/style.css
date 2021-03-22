@@ -31,12 +31,44 @@ body {
 .container-fluid {
   padding: 0;
 }
-h1,h2
+h1,h4
 h5 {
   font-family: "Roboto", sans-serif, sans-serif;
   color: #e84339;
 }
-
+h1{
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+h2{
+  color: rgb(4,98,212);
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 5px;
+  text-transform: capitalize;
+  
+}
+h3{
+  color: black;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 18px;
+}
+.sous-titre{
+  display: flex;
+  flex-direction: row;
+}
+.cercle {
+  width:10px;
+  height: 10px;
+  border-radius: 10px;
+  background:rgb(232,67,57);
+  margin-top: 15px;
+}
+.col-md-2.col-sd-2.col-lg-2{
+  padding: 0;
+}
 /************************************
   *********** Header*** **************
   ************************************/
@@ -85,6 +117,17 @@ a.nav-link {
 .fas.fa-bars {
   color: #e84339;
 }
+#deco{
+  font-family: "Roboto", serif, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  padding: 8px 4px 4px 4px;
+  /* background: rgba(0, 0, 0, 0.0); */
+  border: none;
+
+}
+
 /************************************
   *********** Footer *****************
   ************************************/
@@ -109,84 +152,111 @@ footer {
   height: 70px;
   margin-top: 50px;
 }
-  
 
-
-/* INFOS PRATIQUE */
-/* Mes titres  */
-
-#horaires{
-  position: relative;
-  bottom: 30px;
-  left: 69px;
-  margin-right: 200px;
-  color: rgb(4,98,212);
+.container.col-lg-12.col-md-12.col-sd-12{
+  padding: 0;
 }
-#localisation{
-  position: relative;
-  bottom: 10px;
-  left: 35px;
-  margin-right: 200px;
-  color: rgb(4,98,212);
-}
-#tarifs{
-  position: relative;
-  bottom: 30px;
-  left: 69px;
-  margin-right: 200px;
-  color: rgb(4,98,212);
-}
-.cercle {
-  width:20px;
-  height: 20px;
-  border-radius: 20px;
-  background:rgb(232,67,57);
-  position: relative;
-  left: 35px;
-}
-
-
-
+/************************************
+  *********** Infos Pratiques ********
+  ************************************/
 /* Banniere */
-
-img{
-  width: 100%;
+#banniere{
+   width: 100%;
 }
-
-
-
 /* Tableaux et cellules  */
-
-
-.thg{
+.thg,.tdg{
   font-family: "Roboto";
   color: rgb(4,98,212);
-  font-size: 20px;
- 
-}
-.tdg{
-  font-family: "Roboto";
-  color: rgb(4,98,212);
-  font-size: 20px;
-  font-weight: normal;
-  
+  font-size: 30px;
 }
 table{
   margin-left: auto;
   margin-right: auto;
 }
-
-#button1{
-  background-color: rgb(4,98,212);
-  color: white;
-  padding: 0.2%;
-  border-radius: 5px;
-  cursor: pointer;
+#button1,#button2{
+  margin-left: 40px;
 }
-#button2{
-background-color: rgb(4,98,212);
-color: white;
-padding: 0.2%;
-border-radius: 5px;
-cursor: pointer;
+
+/************************************
+  *********** Les équipes ***********
+  ************************************/
+
+#support{
+height: 250px;
+border-radius: 20px;
+background-color: #F7F7F7;
+}
+img#photoGroup{
+  width: 380px;
+  height: 200px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+#separation{
+  width: 5px;
+  height: 210px;
+  margin-top: 20px;
+  margin-right: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background: rgba(48, 71, 94, 0.452);
+  border-radius: 1px;
+}
+#nomMembre{
+  font-size: 14px;
+}
+#capt{
+  color: white;
+  font-weight: bold;
+  background-color: #e84339;
+  border-radius: 2px;
+  height: 25px;
+  text-align: center;
+}
+
+/*************************************
+  *********** espaceMembre ***********
+  ***********************************/
+
+#profil{
+
+  background-color: #DADDE8;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+#photo{
+  margin-top: 20px;
+  height: 100px;
+  width: 80px;
+}
+.tableEspaceMembre > tbody > tr> td{
+  line-height: 25px;
+  font-size: 13px;
+  width: 100%;
+}
+#separation2{
+  margin-top: 16px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 200px;
+  width: 5px;
+  background: #bd0e0e;
+  border-radius: 1px;
+}
+
+#panelConnexion{
+
+  background-color: #DADDE8;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px; 
+  height: 200px; 
+  /* width:500px */
+}
+.tableEspaceMembre{
+  width: 225px;
 }
