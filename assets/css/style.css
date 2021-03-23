@@ -15,6 +15,13 @@
     padding: 8px 0px 4px 0px;
   }
 }
+/* @media (max-width: 1157px) {
+  #logo {
+    height: 200vw;
+    width: 20vw;
+  }
+} */
+
 /************************************
   *********** Principal **************
   ************************************/
@@ -75,15 +82,15 @@ h3{
 #bgHeader {
   background-image: url("../images/imgHeader1.jpeg");
   background-size: cover;
-  height: 500px;
+  height: auto;
+
   width: 100%;
 }
 #logo {
-  position: absolute;
-  left: 75%;
-  top: 25%;
-  height: 300px;
-  width: 300px;
+  margin-top: 5vw;
+ margin-left: 70%;
+  height:20vw;
+  width: 20vw; 
 }
 .navbar {
   background: linear-gradient(
@@ -167,7 +174,7 @@ footer {
 .thg,.tdg{
   font-family: "Roboto";
   color: rgb(4,98,212);
-  font-size: 30px;
+  font-size: 1.7vw;
 }
 table{
   margin-left: auto;

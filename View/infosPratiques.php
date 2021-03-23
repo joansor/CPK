@@ -1,5 +1,5 @@
 <h1>INFOS PRATIQUES</h1>
-<a id="button2" class="btn btn-primary btn-lg" href="#" role="button">gestion de la BDD du calendrier du club</a>
+<!-- <a id="button2" class="btn btn-primary btn-lg" href="#" role="button">gestion de la BDD du calendrier du club</a> -->
 <br>
 <br>
 <img id="banniere" src="assets/images/banniere.png" alt="banniere">
@@ -7,7 +7,7 @@
   <div class="cercle"></div>
   <h2>Horaires des entrainements :</h2>
 </div>
-<a id="button1" class="btn btn-primary btn-lg" href="#" role="button">Télécharger le calendriers des rencontres (pdf)</a>
+<!-- <a id="button1" class="btn btn-primary btn-lg" href="#" role="button">Télécharger le calendriers des rencontres (pdf)</a> -->
 <br><br>
 <table class="table table-hover">
   <thead>
