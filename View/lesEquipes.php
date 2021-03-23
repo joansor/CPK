@@ -26,7 +26,7 @@ while ($resultListEquipe = $executeListEquipe->fetch()) { // Parcours les résul
                 $idEquipe = $resultListEquipe['idEquipe']; // récupère l'id de l'equipe
 
                 // Requête pour la liste des membres de l'équipe par rapport à l'id de l'équipe
-                $requeteMembreEquipe = "SELECT membres.nomMembre, membres.prenomMembre,joue.isCapitaine FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe WHERE joue.Equipes_idEquipe =" . $idEquipe;
+                $requeteMembreEquipe = "SELECT membres.nomMembre, membres.prenomMembre,joue.isCapitaine,membres.photo FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe WHERE joue.Equipes_idEquipe =" . $idEquipe;
 
                 $executeMembreEquipe = $dbh->query($requeteMembreEquipe);
 
@@ -34,6 +34,7 @@ while ($resultListEquipe = $executeListEquipe->fetch()) { // Parcours les résul
 
                     
                         <div class ="row mt-3">
+                        <img style="width:50px;height:30px;border-radius:50%" src="<?php echo $resultMembreEquipe['photo']; ?>" alt="photo">
                             <div id="nomMembre" class="col-md-5"><?php
                             echo $resultMembreEquipe['nomMembre'] . " " . $resultMembreEquipe['prenomMembre'];?> </div>
                            <?php  if ($resultMembreEquipe['isCapitaine'] === "1") { ?>

@@ -16,9 +16,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             session_start();
             $_SESSION["connected"]= true;
             $_SESSION['nivResponsabilite'] = $reponse['nivResponsabilite'];
-            var_dump($_SESSION['nivResponsabilite']);
             $_SESSION['mail'] = $reponse['mail'];
-            var_dump($_SESSION['mail']);
             
             header('Location: http://localhost/CPK/index.php?page=espaceMembre');
         } else {
