@@ -86,9 +86,31 @@
 							<td><?php echo $ligne['pointsClassement']; ?></td>
 							<td><?php echo $ligne['categories']; ?></td>
 							<td><?php echo $ligne['EquipeNom']; ?></td>
-							<td><?php echo $ligne['nivResponsabilite']; ?></td>
-							<td><?php echo $ligne['MembresComite']; ?></td>
-							<td><?php echo $ligne['payementAdhesion']; ?></td>
+							<td><?php if ($ligne['nivResponsabilite'] == 1) {
+									echo "Admin";
+								} else if ($ligne['nivResponsabilite'] == 2) {
+									echo "Editeur";
+								} else {
+									echo "Membre";
+								} ?></td>
+							<td><?php if ($ligne['MembresComite'] == 1) {
+									echo "Président";
+								} else if ($ligne['MembresComite'] == 2) {
+									echo "Vice-Président";
+								} else if ($ligne['MembresComite'] == 3) {
+									echo "Secrétaire";
+								} else if ($ligne['MembresComite'] == 4) {
+									echo "Trésorier";
+								} else if ($ligne['MembresComite'] == 5) {
+									echo "Entraineur des jeunes";
+								} else {
+									echo "/";
+								} ?></td>
+							<td><?php if ($ligne['payementAdhesion'] == 1) {
+									echo "Oui";
+								} else if ($ligne['payementAdhesion'] == 2) {
+									echo "Non";
+								} ?></td>
 							<td><a href="index.php?page=formMembre&idMembres=<?php echo $ligne['idMembres']; ?>">Modifier</a></td>
 						</tr>
 					<?php } ?>

@@ -53,10 +53,28 @@ if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
 							<td>N°Licence : <?php echo $result['NLicence'] ?></td>
 						</tr>
 						<tr>
-							<td>Statut : <?php echo $result['MembresComite'] ?></td>
+							<td>Statut : <?php if ($result['nivResponsabilité'] = 1) {
+												echo "Admin";
+											} else if ($result['nivResponsabilité'] = 2) {
+												echo "Editeur";
+											} else {
+												echo "Membre";
+											} ?></td>
 						</tr>
 						<tr>
-							<td>Fonction :</td>
+							<td>Fonction : <?php if ($result['MembresComite'] = 1) {
+												echo "Président";
+											} else if ($result['MembresComite'] = 2) {
+												echo "Vice-Président";
+											} else if ($result['MembresComite'] = 3) {
+												echo "Secrétaire";
+											} else if ($result['MembresComite'] = 4) {
+												echo "Trésorier";
+											} else if ($result['MembresComite'] = 5) {
+												echo "Entraineur des jeunes";
+											} else {
+												echo "/";
+											} ?></td>
 						</tr>
 						<tr>
 							<td>Equipe : <?php echo $result['EquipeNom'] ?></td>
