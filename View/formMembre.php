@@ -16,23 +16,21 @@ if (isset($_POST['submbr'])) {
     if ($_POST['idMembres'] > 0) {
         // Si l'id du membre est supérieur à zéro, alors il existe, donc c'est une modification
 
-        $requete = "UPDATE `membres` SET `nom` = '" . addslashes($_POST['nomprd']) . "', `descrciption` = '" . addslashes($_POST['descrprd']) . "', `prix` = '" . strtr($_POST['prixprd'], $trans) . "' WHERE `id_produit` = " . $_POST['idprd'];
+        $requeteUpdateMembre = "UPDATE membres SET NLicence ='".$_POST['NLicence']."',pointsClassement = NULL, nomMembre ='".$_POST['nomMembre']."', prenomMembre = '".$_POST['prenomMembre']."', sexe = '".$_POST['sexe']."', dateNaissance ='". $_POST['dateNaissance']."', adresse ='". $_POST['adresse']."', cp ='". $_POST['cp']."', ville ='". $_POST['ville']."',telephoneMobile ='". $_POST['telephoneMobile']."', mail='". $_POST['mail']."', photo ='".$_POST['photo']."', payementAdhesion = NULL, dateInscription = NULL, password ='". $_POST['password']."',telFixe='". $_POST['telFixe']."',MembresComite = NULL, nivResponsabilite = NULL WHERE idMembres =". $_POST['idMembres'];
 
-        $dbh->query($requete);
+        $dbh->query($requeteUpdateMembre);
+
+        var_dump($requeteUpdateMembre);
 
         echo "Le membre a bien été modifié.<br/>";
     } else {
         // Si l'id du membre est <= à zéro, alors il n'existe pas, c'est un ajout
 
-        // $requetembr = "INSERT INTO `membres` (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `nomRepresentant`, `prenomRepresentant`, `telephoneMobileRep`, `mailRepresentant`, `adresseRepresentant`, `cpRepresentant`, `villeRepresentant`, `NLicence`, `pointsClassement`, `categories`, `EquipeNom`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('" . addslashes($_POST['mail']) . "','" . addslashes($_POST['password']) . "','" . addslashes($_POST['photo']) . "','" . addslashes($_POST['nomMembres']) . "','" . addslashes($_POST['prenomMembres']) . "','" . addslashes($_POST['dateNaissance']) . "','" . addslashes($_POST['sexe']) . "','" . addslashes($_POST['adresse']) . "','" . addslashes($_POST['cp']) . "','" . addslashes($_POST['ville']) . "','" . addslashes($_POST['telephoneMobile']) . "','" . addslashes($_POST['telFixe']) . "','" . addslashes($_POST['nomRepresentant']) . "','" . addslashes($_POST['prenomRepresentant']) . "','" . addslashes($_POST['telephoneMobileRep']) . "','" . addslashes($_POST['mailRepresentant']) . "','" . addslashes($_POST['adresseRepresentant']) . "','" . addslashes($_POST['cpRepresentant']) . "','" . addslashes($_POST['villeRepresentant']) . "','" . addslashes($_POST['NLicence']) . "','" . addslashes($_POST['pointsClassement']) . "','" . addslashes($_POST['categories']) . "','" . addslashes($_POST['EquipeNom']) . "','" . addslashes($_POST['nivResponsabilite']) . "','" . addslashes($_POST['MembresComite']) . "','" . addslashes($_POST['payementAdhesion']) . "')";
+       $requetAddMembre = "INSERT INTO `membres`,represant (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('".$_POST['mail']."','" . $_POST['password'] . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "',NULL,NULL,NULL,NULL)";
 
-     //   $requetetest = "INSERT INTO `membres` (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('" .$_POST['mail'] . "','" . $_POST['password'] . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "','" . $_POST['pointsClassement'] . "','" . $_POST['nivResponsabilite'] . "','" . $_POST['MembresComite'] . "','" . $_POST['payementAdhesion'] . "')";
+        var_dump($requetAddMembre);
 
-       $requetest2 = "INSERT INTO `membres`,represant (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('".$_POST['mail']."','" . $_POST['password'] . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "',NULL,NULL,NULL,NULL)";
-
-        var_dump($requetest2);
-
-        $dbh->query($requetest2);
+        $dbh->query($requetAddMembre);
 
         //$requeterpz = "INSERT INTO `representant` (`nomRepresentant`, `prenomRepresentant`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `nomRepresentant`, `prenomRepresentant`, `telephoneMobileRep`, `mailRepresentant`, `adresseRepresentant`, `cpRepresentant`, `villeRepresentant`, `NLicence`, `pointsClassement`, `categories`, `EquipeNom`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('" . addslashes($_POST['mail']) . "','" . addslashes($_POST['password']) . "','" . addslashes($_POST['photo']) . "','" . addslashes($_POST['nomMembres']) . "','" . addslashes($_POST['prenomMembres']) . "','" . addslashes($_POST['dateNaissance']) . "','" . addslashes($_POST['sexe']) . "','" . addslashes($_POST['adresse']) . "','" . addslashes($_POST['cp']) . "','" . addslashes($_POST['ville']) . "','" . addslashes($_POST['telephoneMobile']) . "','" . addslashes($_POST['telFixe']) . "','" . addslashes($_POST['nomRepresentant']) . "','" . addslashes($_POST['prenomRepresentant']) . "','" . addslashes($_POST['telephoneMobileRep']) . "','" . addslashes($_POST['mailRepresentant']) . "','" . addslashes($_POST['adresseRepresentant']) . "','" . addslashes($_POST['cpRepresentant']) . "','" . addslashes($_POST['villeRepresentant']) . "','" . addslashes($_POST['NLicence']) . "','" . addslashes($_POST['pointsClassement']) . "','" . addslashes($_POST['categories']) . "','" . addslashes($_POST['EquipeNom']) . "','" . addslashes($_POST['nivResponsabilite']) . "','" . addslashes($_POST['MembresComite']) . "','" . addslashes($_POST['payementAdhesion']) . "')";
 
@@ -49,7 +47,7 @@ if (isset($_GET['idMembres'])) {
 
     /*SELECTION des informations du membre ayant idMembres = $_GET['idMembres']*/
     $requete = "SELECT * FROM `membres` WHERE `idMembres` = " . $_GET['idMembres'];
-    $result = $db->query($requete);
+    $result = $dbh->query($requete);
     $tblresult = $result->fetchAll();
 
     /*affiche le type et le contenu d'un variable*/
@@ -110,7 +108,7 @@ if (isset($_GET['idMembres'])) {
     <div class="col-auto">
         <div class="form-outline">
             <label class="form-label" for="Sexe">Sexe</label>
-            <select name="sexe" id="Sexe" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['sexe']); ?>">
+            <select name="sexe" id="Sexe" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['sexe']); var_dump($tblresult[0]['sexe']); ?>">
                 <option value="null"> </option>
                 <option value="Homme">Homme</option>
                 <option value="Femme">Femme</option>
