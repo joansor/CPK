@@ -6,7 +6,7 @@
       <!--Grid column-->
       <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
         <div class="d-flex justify-content-center">
-        <h5 class="text-uppercase">CONTACT</h5>
+        <h5 class="text-uppercase contact">CONTACT</h5>
         </div>
         <br>
         <img class="icons" src="assets/images/localrouge.png"><p class="pContact">Cité Jardin,68260 Kingersheim </p>

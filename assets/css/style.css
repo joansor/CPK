@@ -18,7 +18,29 @@
         padding: 8px 0px 4px 0px;
     }
 }
+/* <<<<<<< HEAD */
+@media (max-width: 992px) {
+  .icons {
+    display: none;
+  }
+  .pContact{
+    text-align: left;
+  }
+}
+@media (max-width: 767px) {
+  
+ .contact{
+    margin-right: 10%
+  }
+}
 
+@media (max-width: 1157px) {
+  #logo {
+    height: 200vw;
+    width: 20vw;
+  }
+}
+/* >>>>>>> 9ea1b74c6c1dd1970aa35009ed6b9540cf8d2814 */
 
 /************************************
   *********** Principal **************
@@ -90,18 +112,33 @@ h3 {
   ************************************/
 
 #bgHeader {
+/* <<<<<<< HEAD
     background-image: url("../images/imgHeader1.jpeg");
     background-size: cover;
     height: 500px;
     width: 100%;
+======= */
+  background-image: url("../images/imgHeader1.jpeg");
+  background-size: cover;
+  height: auto;
+
+  width: 100%;
+/* >>>>>>> 9ea1b74c6c1dd1970aa35009ed6b9540cf8d2814 */
 }
 
 #logo {
+/* <<<<<<< HEAD
     position: absolute;
     left: 75%;
     top: 25%;
     height: 300px;
     width: 300px;
+======= */
+  margin-top: 5vw;
+ margin-left: 70%;
+  height:20vw;
+  width: 20vw; 
+/* >>>>>>> 9ea1b74c6c1dd1970aa35009ed6b9540cf8d2814 */
 }
 
 .navbar {
@@ -190,11 +227,10 @@ footer {
 
 /* Tableaux et cellules  */
 
-.thg,
-.tdg {
-    font-family: "Roboto";
-    color: rgb(4, 98, 212);
-    font-size: 30px;
+.thg,.tdg{
+  font-family: "Roboto";
+  color: rgb(4,98,212);
+  font-size: 1.7vw;
 }
 
 table {
