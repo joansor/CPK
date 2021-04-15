@@ -42,7 +42,7 @@ if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
 							<td>Tel : <?php echo $result['telephoneMobile'] ?></td>
 						</tr>
 						<tr>
-							<td>Représentant légal : <?php echo $result['nomRepresentant']." ".$result['prenomRepresentant'] ?></td>
+							<td>Représentant légal : <?php echo $result['nomRepresentant'] . " " . $result['prenomRepresentant'] ?></td>
 						</tr>
 					</tbody>
 				</table>
@@ -70,7 +70,7 @@ if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
 		</div>
 		<!-- Bloc bouton accés BDD -->
 	<?php }
-	if ($_SESSION['mail'] && $_SESSION["connected"] === true && $_SESSION['nivResponsabilite'] === "3") {
+	if ($_SESSION['mail'] && $_SESSION["connected"] === true && $_SESSION['nivResponsabilite'] === "1") {
 	?>
 		<div class="container p-4 col-md-12 col-sd-12 col-lg-12 d-flex justify-content-center">
 			<div>
@@ -81,27 +81,27 @@ if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
 	<?php } ?>
 <?php } else { ?>
 	<div class="d-flex justify-content-center">
-	<div class="col-md-6 col-sd-6 col-lg-6 mb-5">
-		<!-- Bloc Connexion -->
-		<form action="http://localhost/CPK/index.php?page=traitement" method="post">
-			<div id="panelConnexion" class="p-5 text-center bg-image">
-				<div class="form-outline">
-					<input type="email" name="email" id="typeEmail" class="form-control" required />
-					<label class="form-label" for="typeEmail">Identifiant</label>
-				</div>
-				<div class="form-outline">
-					<input type="password" name="password" id="typePassword" class="form-control" required />
-					<label class="form-label" for="typePassword">Mot de passe</label>
-				</div>
-				<div style="display: inline-block;">
-					<div class="form-check" style="display: inline-block; margin-right: 25px;">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
-						<label class="form-check-label" for="flexCheckChecked">Se souvenir de moi</label>
+		<div class="col-md-6 col-sd-6 col-lg-6 mb-5">
+			<!-- Bloc Connexion -->
+			<form action="http://localhost/CPK/index.php?page=traitement" method="post">
+				<div id="panelConnexion" class="p-5 text-center bg-image">
+					<div class="form-outline">
+						<input type="email" name="email" id="typeEmail" class="form-control" required />
+						<label class="form-label" for="typeEmail">Identifiant</label>
 					</div>
-					<button type="submit" class="btn btn-primary" style="display: inline-block;">Connexion</button>
+					<div class="form-outline">
+						<input type="password" name="password" id="typePassword" class="form-control" required />
+						<label class="form-label" for="typePassword">Mot de passe</label>
+					</div>
+					<div style="display: inline-block;">
+						<div class="form-check" style="display: inline-block; margin-right: 25px;">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+							<label class="form-check-label" for="flexCheckChecked">Se souvenir de moi</label>
+						</div>
+						<button type="submit" class="btn btn-primary" style="display: inline-block;">Connexion</button>
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
 		</div>
 	</div>
 <?php } ?>
