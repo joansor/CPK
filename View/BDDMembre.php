@@ -21,8 +21,11 @@
 	<?php
 
 	//$requete = "SELECT * FROM `membres`";
-	$requete = "SELECT * FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant";
+	// $requete = "SELECT * FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant";
 
+
+	$requete = "SELECT * FROM membres INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant INNER JOIN datesdefonctions ON datesdefonctions.idDatesDeFonctions = membres.idMembres INNER JOIN fonctions ON fonctions.idFonction = datesdefonctions.Fonctions_idFonction";
+	
 	$tblmb = $dbh->query($requete);
 
 	?>
@@ -55,7 +58,7 @@
 						<th scope="col">Catégorie</th>
 						<th scope="col">Equipe</th>
 						<th scope="col">Statut</th>
-						<th scope="col">Fonction</th>
+						<th scope="col">Membre Comité</th>
 						<th scope="col">Paiement</th>
 						<th scope="col">Modifier</th>
 					</tr>
@@ -89,7 +92,7 @@
 							<td><?php echo $ligne['nivResponsabilite']; ?></td>
 							<td><?php echo $ligne['MembresComite']; ?></td>
 							<td><?php echo $ligne['payementAdhesion']; ?></td>
-							<td><a href="index.php?page=formMembre&idMembres=<?php echo $ligne['idMembres']; ?>">Modifier</a></td>
+							<td><a href="index.php?page=formMembre&idMembres=<?php echo $ligne['idMembres']; ?>"><i class="fas fa-user-edit"></i></a></td>
 							<td>
 								<a id="supprimer" href="http://localhost/CPK/index.php?page=traitementSupprime&idMembres=<?php echo $ligne['idMembres']; ?>" onclick="return confirm('Voulez-vous supprimer --><?php echo $ligne['prenomMembre'] . ' ' . $ligne['nomMembre']; ?><--')">
 									<i class="fas fa-trash-alt"></i>

@@ -337,5 +337,17 @@ img#photoGroup {
 
 
 /*************************************
-  *****Formulaire création membre ****
+  **************** BDDMembre *********
   ***********************************/
+
+  th{
+      color: #0462d4;
+  }
+  .fas.fa-user-edit{
+
+    color: green;
+  }
+  .fas.fa-trash-alt{
+
+    color: #bd0e0e;
+  }

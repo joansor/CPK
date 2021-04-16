@@ -38,7 +38,7 @@ if (isset($_POST['submbr'])) {
 
         // Si l'id du membre est <= à zéro, alors il n'existe pas, c'est un ajout
        
-       $requetAddMembre = "INSERT INTO `membres`,represant (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('".$_POST['mail']."','" . $_POST['password'] . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "','".intval($_POST['pointsClassement'])."','".$_POST['nivResponsabilite']."','" . $_POST['MembresComite'] . "','" . intval($_POST['payementAdhesion']) . "')";
+       $requetAddMembre = "INSERT INTO `membres` (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('".$_POST['mail']."','" . $_POST['password'] . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "','".intval($_POST['pointsClassement'])."','".$_POST['nivResponsabilite']."',NULL,'" . intval($_POST['payementAdhesion']) . "')";
 
 
        if(isset($_POST['nomRepresentant'])){
@@ -68,17 +68,10 @@ if (isset($_GET['idMembres'])) {
    
     $result = $dbh->query($requete);
     $tblresult = $result->fetchAll();
-    var_dump($tblresult);
-    echo"////////////////////////////////////////////////////////////////////////////////////////////////";
-    var_dump($tblresult[0]['sexe']);
-    var_dump($tblresult[0]['Fonction']);
-    echo"////====================================";
-    var_dump($tblresult[0]['nivResponsabilite']);
-    echo"////====================================";
-    var_dump($tblresult[0]['EquipeNom']);
+    //var_dump($tblresult);
 }
 
-
+    // var_dump($tblresultEquipe);
 /* Si j'ai un idMembres je fais un select dans la base de données des informations du membre avec cet id */
 
 ?>
@@ -141,9 +134,8 @@ if (isset($_GET['idMembres'])) {
         <div class="form-outline">
             <label class="form-label" for="Sexe">Sexe</label>
             <select name="sexe" id="Sexe" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['sexe']);?>">
-                <option value="null"> </option>
-                <option value="Homme" <?php if ($tblresult[0]['sexe'] === "Homme") echo "selected" ?>>Homme</option>
-                <option value="Femme" <?php if ($tblresult[0]['sexe'] === "Femme") echo "selected" ?>>Femme</option>
+                <option value="Homme" <?php if (isset($tblresult)) if (isset($tblresult[0]['sexe']) === "Homme") echo "selected" ?>>Homme</option>
+                <option value="Femme" <?php if (isset($tblresult)) if (isset($tblresult[0]['sexe']) === "Femme") echo "selected" ?>>Femme</option>
             </select>
         </div>
     </div>
@@ -237,26 +229,52 @@ if (isset($_GET['idMembres'])) {
         </div>
     </div>
     <div class="col-auto">
+        <?php       
+            $requeteEquipe = "SELECT categories, EquipeNom FROM equipes";  
+            $resultEquipe = $dbh->query($requeteEquipe);
+           
+        ?>
         <div class="form-outline">
             <label class="form-label" for="Catégorie">Catégorie</label>
-            <select name="categories" id="Catégorie" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['categories']); ?>">
-                <option value="null"></option>
-                <option value="Cadet" <?php if ($tblresult[0]['categories'] === "Cadet") echo "selected" ?>>Cadet</option>
-                <option value="Senior" <?php if ($tblresult[0]['categories'] === "Senior") echo "selected" ?>>Senior</option>
-                <option value="Loisir" <?php if ($tblresult[0]['categories'] === "Loisir") echo "selected" ?>>Loisir</option>
+            <select name="categories" id="Catégorie" class="form-control" style="background: #F7F7F7" >
+            <?php while ($tblresultEquipe = $resultEquipe->fetch()) { ?>
+                    
+                    <option value="<?php echo $tblresultEquipe['categories'];?>"
+                        <?php
+                            if (isset($tblresult)){
+    
+                                if ($tblresultEquipe['categories'] === $tblresult[0]['categories']){
+                                    echo "selected";
+                                }else{
+                                    
+                                    echo" ";
+                                }
+                            }
+                        ?>><?php echo $tblresultEquipe['categories']; ?></option>
+                <?php } ?>
             </select>
         </div>
     </div>
     <div class="col-auto">
         <div class="form-outline">
+        <?php $resultEquipe2 = $dbh->query($requeteEquipe); ?>
             <label class="form-label" for="Equipe">Equipe</label>
-            <select name="EquipeNom" id="Equipe" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['EquipeNom']); ?>">
-                <option value="null"> </option>
-                <!-- requete equipe à faire  -->
-                <option value="equipe1" <?php if ($tblresult[0]['EquipeNom'] === "equipe1") echo "selected" ?>>Equipe 1 : Promotion Excellence</option>
-                <option value="equipe2" <?php if ($tblresult[0]['EquipeNom'] === "equipe2") echo "selected" ?>>Equipe 2 : Promotion Honneur</option>
-                <option value="equipeLoisir"  <?php if ($tblresult[0]['EquipeNom'] === "equipeLoisir") echo "selected" ?>>Equipe Loisir</option>
-                <option value="equipeCadet"  <?php if ($tblresult[0]['EquipeNom'] === "equipeCadet") echo "selected" ?>>Equipe Cadet</option>
+            <select name="EquipeNom" id="Equipe" class="form-control" style="background: #F7F7F7">
+            <?php while ($tblresultEquipe2 = $resultEquipe2->fetch()) { ?>
+                    
+                <option value="<?php echo $tblresultEquipe2['EquipeNom'];?>"
+                    <?php
+                        if (isset($tblresult)){
+
+                            if ($tblresultEquipe2['EquipeNom'] === $tblresult[0]['EquipeNom']){
+                                echo "selected";
+                            }else{
+                                
+                                echo" ";
+                            }
+                        }
+                    ?>><?php echo $tblresultEquipe2['EquipeNom']; ?></option>
+            <?php } ?>
             </select>
         </div>
     </div>
@@ -264,25 +282,63 @@ if (isset($_GET['idMembres'])) {
     <div class="col-auto">
         <div class="form-outline">
             <label class="form-label" for="Statut">Statut</label>
-            <select name="nivResponsabilite" id="Statut" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['nivResponsabilite']); ?>">
-                <option value="null"> </option>
-                <option value="Membre" <?php if ($tblresult[0]['nivResponsabilite'] === "Membre") echo "selected" ?>>Membre</option>
-                <option value="Editeur" <?php if ($tblresult[0]['nivResponsabilite'] === "Editeur") echo "selected" ?>>Editeur</option>
-                <option value="Admin" <?php if ($tblresult[0]['nivResponsabilite'] === "Admin") echo "selected" ?>>Admin</option>
+            <select name="nivResponsabilite" id="Statut" class="form-control" style="background: #F7F7F7">
+                <option value="Membre" <?php
+                 if (isset($tblresult)){
+                   
+                //   if (isset($tblresult[0]['nivResponsabilite']) === "Membre"){ 
+                //   echo "";
+                //   }
+
+                  if ($tblresult[0]['nivResponsabilite'] === "Membre"){ 
+                    echo "selected";
+                    }
+                 }else echo""; 
+                   ?>>Membre</option>
+                <option value="Editeur" <?php
+                 if (isset($tblresult)){
+                //   if (isset($tblresult[0]['nivResponsabilite']) === "Editeur"){
+                //    echo "";
+                // }
+                 if ($tblresult[0]['nivResponsabilite'] === "Editeur"){ 
+                    echo "selected";
+                    }
+                  } else echo""; ?>>Editeur</option>
+                <option value="Admin" <?php
+                 if (isset($tblresult)){
+                //   if (isset($tblresult[0]['nivResponsabilite']) === "Admin"){
+                //    echo "";
+                //  }
+                 if ($tblresult[0]['nivResponsabilite'] === "Admin"){ 
+                    echo "selected";
+                    }
+                  } else echo""; ?>>Admin</option>
             </select>
         </div>
     </div>
     <div class="col-auto">
         <div class="form-outline">
+        <?php 
+        $requeteFonction = "SELECT Fonction FROM fonctions";
+        $resultFonction = $dbh->query($requeteFonction);
+      
+        ?>
             <label class="form-label" for="Fonction">Fonction</label>
-            <select name="fonction" id="Fonction" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['Fonction']); ?>">
-                <option value="null"> </option>
-                <option value="president" <?php if ($tblresult[0]['Fonction'] === "president") echo "selected" ?>>Président</option>
-                <option value="vice-President" <?php if ($tblresult[0]['Fonction'] === "vice-President") echo "selected" ?>>Vice-Président</option>
-                <option value="secretaire" <?php if ($tblresult[0]['Fonction'] === "secretaire") echo "selected" ?>>Secretaire</option>
-                <option value="tresorier" <?php if ($tblresult[0]['Fonction'] === "tresorier") echo "selected" ?>>Tresorier</option>
-                <option value="entraineurJeune" <?php if ($tblresult[0]['Fonction'] === "entraineurJeune") echo "selected" ?>>Entraineur des jeunes</option>
-                <option value="joueur" <?php if ($tblresult[0]['Fonction'] === "joueur") echo "selected" ?>>Joueur</option>
+            <select name="fonction" id="Fonction" class="form-control" style="background: #F7F7F7">
+            <?php while ($tblFonction = $resultFonction->fetch()) { ?>
+                <option value="<?php echo $tblFonction['Fonction'];?>"
+                    <?php
+                        if (isset($tblresult)){
+
+                            if ($tblFonction['Fonction'] === $tblresult[0]['Fonction']){
+                                echo "selected";
+                            }else{
+                                
+                                echo" ";
+                            }
+                        }
+                    ?>><?php echo $tblFonction['Fonction']; ?></option>
+            <?php } ?>
             </select>
         </div>
     </div>
@@ -292,7 +348,12 @@ if (isset($_GET['idMembres'])) {
             <input name="payementAdhesion" class="form-check-input" type="checkbox" value="1" id="Paiement" checked />
         </div>
     </div>
-    <div></div>
+    <div  class="col-auto">
+    <label class="form-check-label" for="membreComite">Membre Comité </label>
+        <div class="form-check">
+            <input name="membresComite" class="form-check-input" type="checkbox" value="oui" id="membreComite"/>
+        </div>
+    </div>
     <div class="col-auto">
         <button type="submit" name="submbr" class="btn btn-primary">Valider</button>
     </div>
