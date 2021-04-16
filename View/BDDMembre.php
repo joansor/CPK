@@ -31,7 +31,7 @@
 			<table class="table table-striped table-hover table-sm">
 				<thead>
 					<tr>
-						<th scope="col">Id/Email</th>
+						<th scope="col">Id Membre</th>
 						<th scope="col">Password</th>
 						<th scope="col">Nom</th>
 						<th scope="col">Prénom</th>
@@ -90,6 +90,11 @@
 							<td><?php echo $ligne['MembresComite']; ?></td>
 							<td><?php echo $ligne['payementAdhesion']; ?></td>
 							<td><a href="index.php?page=formMembre&idMembres=<?php echo $ligne['idMembres']; ?>">Modifier</a></td>
+							<td>
+								<a id="supprimer" href="http://localhost/CPK/index.php?page=traitementSupprime&idMembres=<?php echo $ligne['idMembres']; ?>" onclick="return confirm('Voulez-vous supprimer --><?php echo $ligne['prenomMembre'] . ' ' . $ligne['nomMembre']; ?><--')">
+									<i class="fas fa-trash-alt"></i>
+								</a>
+							</td>
 						</tr>
 					<?php } ?>
 			</table>

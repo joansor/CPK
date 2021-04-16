@@ -7,43 +7,51 @@ if (isset($_POST['submbr'])) {
     if ($_POST['idMembres'] > 0) {
         // Si l'id du membre est supérieur à zéro, alors il existe, donc c'est une modification
 
-        $requeteUpdateMembre = "UPDATE membres SET NLicence ='".$_POST['NLicence']."',pointsClassement = NULL, nomMembre ='".$_POST['nomMembre']."', prenomMembre = '".$_POST['prenomMembre']."', sexe = '".$_POST['sexe']."', dateNaissance ='". $_POST['dateNaissance']."', adresse ='". $_POST['adresse']."', cp ='". $_POST['cp']."', ville ='". $_POST['ville']."',telephoneMobile ='". $_POST['telephoneMobile']."', mail='". $_POST['mail']."', photo ='".$_POST['photo']."', payementAdhesion = NULL, dateInscription = NULL, password ='". $_POST['password']."',telFixe='". $_POST['telFixe']."',MembresComite = NULL, nivResponsabilite = NULL WHERE idMembres =". $_POST['idMembres'];
+        $date = new DateTime();
+        $resultDate = $date->getTimestamp();
+        var_dump($resultDate);
 
+        $requeteUpdateMembre = "UPDATE membres SET NLicence ='".$_POST['NLicence']."',pointsClassement = '".intval($_POST['pointsClassement'])."', nomMembre ='".$_POST['nomMembre']."', prenomMembre = '".$_POST['prenomMembre']."', sexe = '".$_POST['sexe']."', dateNaissance ='". $_POST['dateNaissance']."', adresse ='". $_POST['adresse']."', cp ='". $_POST['cp']."', ville ='". $_POST['ville']."',telephoneMobile ='". $_POST['telephoneMobile']."', mail='". $_POST['mail']."', photo ='".$_POST['photo']."', payementAdhesion = '" . intval($_POST['payementAdhesion']) . "', dateInscription = NULL, password ='". $_POST['password']."',telFixe='". $_POST['telFixe']."',MembresComite = NULL, nivResponsabilite = '".$_POST['nivResponsabilite']."' WHERE idMembres =". $_POST['idMembres'];
     
         if(isset($_POST['idRepresentant'])){
-          
         
             $requeteUpdateRepresentant = "UPDATE representant SET nomRepresentant='". $_POST['nomRepresentant']."', prenomRepresentant='".$_POST['prenomRepresentant']."', adresseRepresentant='".$_POST['adresseRepresentant']."', cpRepresentant='".$_POST['cpRepresentant']."', villeRepresentant='".$_POST['villeRepresentant']."', telephoneMobileRep='".$_POST['telephoneMobileRep']."', mailRepresentant='".$_POST['mailRepresentant']."' WHERE idRepresentant =".$_POST['idRepresentant'];
 
             $dbh->query($requeteUpdateRepresentant);
         }
+        if(isset($_POST['idEquipe'])){
 
+            $requeteUpdateEquipe = "UPDATE equipes SET categories ='".$_POST['categories']."',EquipeNom ='".$_POST['EquipeNom']."' WHERE idEquipe =".$_POST['idEquipe'];
+
+            $dbh->query($requeteUpdateEquipe);
+
+        }
+        if(isset($_POST['idFonction'])){
+
+           $requeteUpdateFonction = "UPDATE fonctions SET Fonction ='".$_POST['fonction']."' WHERE idFonction =".$_POST['idFonction'];
+           $dbh->query($requeteUpdateFonction);
+        }
         $dbh->query($requeteUpdateMembre);
 
         echo "Le membre a bien été modifié.<br/>";
     } else {
 
         // Si l'id du membre est <= à zéro, alors il n'existe pas, c'est un ajout
-
-       $requetAddMembre = "INSERT INTO `membres`,represant (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('".$_POST['mail']."','" . $_POST['password'] . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "',NULL,NULL,NULL,NULL)";
+       
+       $requetAddMembre = "INSERT INTO `membres`,represant (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('".$_POST['mail']."','" . $_POST['password'] . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "','".intval($_POST['pointsClassement'])."','".$_POST['nivResponsabilite']."','" . $_POST['MembresComite'] . "','" . intval($_POST['payementAdhesion']) . "')";
 
 
        if(isset($_POST['nomRepresentant'])){
 
         $requetAddRepresentant = "INSERT INTO `representant`(nomRepresentant, prenomRepresentant, adresseRepresentant, cpRepresentant, villeRepresentant, telephoneMobileRep, mailRepresentant) VALUES ('".$_POST['nomRepresentant']."','".$_POST['prenomRepresentant']."','".$_POST['adresseRepresentant']."','".$_POST['cpRepresentant']."','".$_POST['villeRepresentant']."','".$_POST['telephoneMobileRep']."','".$_POST['mailRepresentant']."')";
 
-        var_dump($requetAddRepresentant);
-
         $dbh->query($requetAddRepresentant);
 
        }
-
-
         var_dump($requetAddMembre);
 
         $dbh->query($requetAddMembre);
       
-
         echo "Le membre a bien été crée.<br/>";
     }
 
@@ -52,15 +60,22 @@ if (isset($_POST['submbr'])) {
 
 /*Test si un idmembre dans l'url*/
 if (isset($_GET['idMembres'])) {
-
     /*SELECTION des informations du membre ayant idMembres = $_GET['idMembres']*/
    // $requete = "SELECT * FROM `membres` WHERE `idMembres` = " . $_GET['idMembres'];
 
-    $requete = "SELECT * FROM membres INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant  WHERE membres.idMembres = " . $_GET['idMembres'];
+    $requete = "SELECT * FROM membres INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant INNER JOIN datesdefonctions ON datesdefonctions.idDatesDeFonctions = membres.idMembres INNER JOIN fonctions ON fonctions.idFonction = datesdefonctions.Fonctions_idFonction WHERE membres.idMembres =" . $_GET['idMembres'];
 
+   
     $result = $dbh->query($requete);
     $tblresult = $result->fetchAll();
-  
+    var_dump($tblresult);
+    echo"////////////////////////////////////////////////////////////////////////////////////////////////";
+    var_dump($tblresult[0]['sexe']);
+    var_dump($tblresult[0]['Fonction']);
+    echo"////====================================";
+    var_dump($tblresult[0]['nivResponsabilite']);
+    echo"////====================================";
+    var_dump($tblresult[0]['EquipeNom']);
 }
 
 
@@ -80,6 +95,11 @@ if (isset($_GET['idMembres'])) {
     
     <input type="hidden" name="idRepresentant" value="<?php if (isset($tblresult[0]['idRepresentant'])) echo $tblresult[0]['idRepresentant'];?>">
 
+       
+    <input type="hidden" name="idEquipe" value="<?php if (isset($tblresult[0]['idEquipe'])) echo $tblresult[0]['idEquipe'];?>">
+
+    <input type="hidden" name="idFonction" value="<?php if (isset($tblresult[0]['idFonction'])) echo $tblresult[0]['idFonction'];?>">
+
     <div class="col-auto">
         <div class="form-outline">
             <label class="form-label" for="IdEmail">Identifiant/Email</label>
@@ -95,7 +115,7 @@ if (isset($_GET['idMembres'])) {
     <div class="col-auto">
         <div class="form-outline">
             <label class="form-label" for="Photo">Photo</label>
-            <input name="photo" type="file" id="Photo" class="form-control" accept="image/png, image/jpeg" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['photo']); ?>" />
+            <input name="photo" type="file" id="Photo" class="form-control" accept="image/png, image/jpeg" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['photo']); ?>"/>
         </div>
     </div>
     <div></div>
@@ -122,8 +142,8 @@ if (isset($_GET['idMembres'])) {
             <label class="form-label" for="Sexe">Sexe</label>
             <select name="sexe" id="Sexe" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['sexe']);?>">
                 <option value="null"> </option>
-                <option value="Homme">Homme</option>
-                <option value="Femme">Femme</option>
+                <option value="Homme" <?php if ($tblresult[0]['sexe'] === "Homme") echo "selected" ?>>Homme</option>
+                <option value="Femme" <?php if ($tblresult[0]['sexe'] === "Femme") echo "selected" ?>>Femme</option>
             </select>
         </div>
     </div>
@@ -220,10 +240,10 @@ if (isset($_GET['idMembres'])) {
         <div class="form-outline">
             <label class="form-label" for="Catégorie">Catégorie</label>
             <select name="categories" id="Catégorie" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['categories']); ?>">
-                <option value="null"> </option>
-                <option value="Cadet">Cadet</option>
-                <option value="Senior">Senior</option>
-                <option value="Loisir">Loisir</option>
+                <option value="null"></option>
+                <option value="Cadet" <?php if ($tblresult[0]['categories'] === "Cadet") echo "selected" ?>>Cadet</option>
+                <option value="Senior" <?php if ($tblresult[0]['categories'] === "Senior") echo "selected" ?>>Senior</option>
+                <option value="Loisir" <?php if ($tblresult[0]['categories'] === "Loisir") echo "selected" ?>>Loisir</option>
             </select>
         </div>
     </div>
@@ -232,10 +252,11 @@ if (isset($_GET['idMembres'])) {
             <label class="form-label" for="Equipe">Equipe</label>
             <select name="EquipeNom" id="Equipe" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['EquipeNom']); ?>">
                 <option value="null"> </option>
-                <option value="Cadet">Cadet</option>
-                <option value="Senior">Senior1</option>
-                <option value="Senior">Senior2</option>
-                <option value="Loisir">Loisir</option>
+                <!-- requete equipe à faire  -->
+                <option value="equipe1" <?php if ($tblresult[0]['EquipeNom'] === "equipe1") echo "selected" ?>>Equipe 1 : Promotion Excellence</option>
+                <option value="equipe2" <?php if ($tblresult[0]['EquipeNom'] === "equipe2") echo "selected" ?>>Equipe 2 : Promotion Honneur</option>
+                <option value="equipeLoisir"  <?php if ($tblresult[0]['EquipeNom'] === "equipeLoisir") echo "selected" ?>>Equipe Loisir</option>
+                <option value="equipeCadet"  <?php if ($tblresult[0]['EquipeNom'] === "equipeCadet") echo "selected" ?>>Equipe Cadet</option>
             </select>
         </div>
     </div>
@@ -245,29 +266,30 @@ if (isset($_GET['idMembres'])) {
             <label class="form-label" for="Statut">Statut</label>
             <select name="nivResponsabilite" id="Statut" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['nivResponsabilite']); ?>">
                 <option value="null"> </option>
-                <option value="Membre">Membre</option>
-                <option value="Editeur">Editeur</option>
-                <option value="Admin">Admin</option>
+                <option value="Membre" <?php if ($tblresult[0]['nivResponsabilite'] === "Membre") echo "selected" ?>>Membre</option>
+                <option value="Editeur" <?php if ($tblresult[0]['nivResponsabilite'] === "Editeur") echo "selected" ?>>Editeur</option>
+                <option value="Admin" <?php if ($tblresult[0]['nivResponsabilite'] === "Admin") echo "selected" ?>>Admin</option>
             </select>
         </div>
     </div>
     <div class="col-auto">
         <div class="form-outline">
             <label class="form-label" for="Fonction">Fonction</label>
-            <select name="MembresComite" id="Fonction" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['MembresComite']); ?>">
+            <select name="fonction" id="Fonction" class="form-control" style="background: #F7F7F7" value="<?php if (isset($tblresult)) echo stripslashes($tblresult[0]['Fonction']); ?>">
                 <option value="null"> </option>
-                <option value="Président">Président</option>
-                <option value="Président">Vice-Président</option>
-                <option value="Secretaire">Secretaire</option>
-                <option value="Tresorier">Tresorier</option>
-                <option value="Entraineur">Entraineur des jeunes</option>
+                <option value="president" <?php if ($tblresult[0]['Fonction'] === "president") echo "selected" ?>>Président</option>
+                <option value="vice-President" <?php if ($tblresult[0]['Fonction'] === "vice-President") echo "selected" ?>>Vice-Président</option>
+                <option value="secretaire" <?php if ($tblresult[0]['Fonction'] === "secretaire") echo "selected" ?>>Secretaire</option>
+                <option value="tresorier" <?php if ($tblresult[0]['Fonction'] === "tresorier") echo "selected" ?>>Tresorier</option>
+                <option value="entraineurJeune" <?php if ($tblresult[0]['Fonction'] === "entraineurJeune") echo "selected" ?>>Entraineur des jeunes</option>
+                <option value="joueur" <?php if ($tblresult[0]['Fonction'] === "joueur") echo "selected" ?>>Joueur</option>
             </select>
         </div>
     </div>
     <div class="col-auto">
         <label class="form-check-label" for="Paiement">Paiement adhésion </label>
         <div class="form-check">
-            <input name="payementAdhesion" class="form-check-input" type="checkbox" value="" id="Paiement" checked />
+            <input name="payementAdhesion" class="form-check-input" type="checkbox" value="1" id="Paiement" checked />
         </div>
     </div>
     <div></div>

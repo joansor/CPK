@@ -13,7 +13,7 @@ if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
 		<div class="d-flex justify-content-center">
 			<div id="profil" class="col-md-9 col-sd-9 row p-4">
 				<div class="col-md-1 col-sd-1 col-lg-1">
-					<img id="photo" src="<?php echo $result['photo'] ?>" alt="photo">
+					<img id="photo" src="<?php echo "http://localhost/CPK/assets/images/".$result['photo'] ?>" alt="photo">
 				</div>
 				<table class="tableEspaceMembre col-md-7 col-sd-7 col-lg-3">
 					<tbody>
@@ -70,7 +70,7 @@ if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
 		</div>
 		<!-- Bloc bouton accés BDD -->
 	<?php }
-	if ($_SESSION['mail'] && $_SESSION["connected"] === true && $_SESSION['nivResponsabilite'] === "1") {
+	if ($_SESSION['mail'] && $_SESSION["connected"] === true && $_SESSION['nivResponsabilite'] === "Admin") {
 	?>
 		<div class="container p-4 col-md-12 col-sd-12 col-lg-12 d-flex justify-content-center">
 			<div>
