@@ -343,6 +343,9 @@ img#photoGroup {
   th{
       color: #0462d4;
   }
+  td{
+      padding: 0 auto 0 auto;
+  }
   .fas.fa-user-edit{
 
     color: green;

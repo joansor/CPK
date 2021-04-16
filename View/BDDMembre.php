@@ -20,11 +20,8 @@
 
 	<?php
 
-	//$requete = "SELECT * FROM `membres`";
+	$requete = "SELECT * FROM membres";
 	// $requete = "SELECT * FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant";
-
-
-	$requete = "SELECT * FROM membres INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant INNER JOIN datesdefonctions ON datesdefonctions.idDatesDeFonctions = membres.idMembres INNER JOIN fonctions ON fonctions.idFonction = datesdefonctions.Fonctions_idFonction";
 	
 	$tblmb = $dbh->query($requete);
 
@@ -64,34 +61,36 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php while ($ligne = $tblmb->fetch()) { ?>
+					<?php
+					
+					while ($ligne = $tblmb->fetch()) { ?>
 						<tr>
-							<td><?php echo $ligne['idMembres']; ?></td>
-							<td><?php echo $ligne['password']; ?></td>
-							<td><?php echo $ligne['nomMembre']; ?></td>
-							<td><?php echo $ligne['prenomMembre']; ?></td>
-							<td><?php echo $ligne['dateNaissance']; ?></td>
-							<td><?php echo $ligne['sexe']; ?></td>
-							<td><?php echo $ligne['adresse']; ?></td>
-							<td><?php echo $ligne['cp']; ?></td>
-							<td><?php echo $ligne['ville']; ?></td>
-							<td><?php echo $ligne['telephoneMobile']; ?></td>
-							<td><?php echo $ligne['telFixe']; ?></td>
-							<td><?php echo $ligne['nomRepresentant']; ?></td>
-							<td><?php echo $ligne['prenomRepresentant']; ?></td>
-							<td><?php echo $ligne['telephoneMobileRep']; ?></td>
-							<td><?php echo $ligne['mailRepresentant']; ?></td>
-							<td><?php echo $ligne['adresseRepresentant']; ?></td>
-							<td><?php echo $ligne['cpRepresentant']; ?></td>
-							<td><?php echo $ligne['villeRepresentant']; ?></td>
-							<td><?php echo $ligne['photo']; ?></td>
-							<td><?php echo $ligne['NLicence']; ?></td>
-							<td><?php echo $ligne['pointsClassement']; ?></td>
-							<td><?php echo $ligne['categories']; ?></td>
-							<td><?php echo $ligne['EquipeNom']; ?></td>
-							<td><?php echo $ligne['nivResponsabilite']; ?></td>
-							<td><?php echo $ligne['MembresComite']; ?></td>
-							<td><?php echo $ligne['payementAdhesion']; ?></td>
+							<td><?php  if(isset($ligne['idMembres'])) echo $ligne['idMembres']; ?></td>
+							<td><?php  if(isset($ligne['password'])) echo $ligne['password']; ?></td>
+							<td><?php  if(isset($ligne['nomMembre'])) echo $ligne['nomMembre']; ?></td>
+							<td><?php if(isset($ligne['prenomMembre'])) echo $ligne['prenomMembre']; ?></td>
+							<td><?php  if(isset($ligne['dateNaissance'])) echo $ligne['dateNaissance']; ?></td>
+							<td><?php if(isset($ligne['sexe'])) echo $ligne['sexe']; ?></td>
+							<td><?php if(isset($ligne['adresse'])) echo $ligne['adresse']; ?></td>
+							<td><?php if(isset($ligne['cp'])) echo $ligne['cp']; ?></td>
+							<td><?php if(isset($ligne['ville'])) echo $ligne['ville']; ?></td>
+							<td><?php if(isset($ligne['telephoneMobile'])) echo $ligne['telephoneMobile']; ?></td>
+							<td><?php if(isset($ligne['telFixe'])) echo $ligne['telFixe']; ?></td>
+							<td><?php if(isset($ligne['nomRepresentant'])) echo $ligne['nomRepresentant']; ?></td>
+							<td><?php if(isset($ligne['prenomRepresentant'])) echo $ligne['prenomRepresentant']; ?></td>
+							<td><?php if(isset($ligne['telephoneMobileRep'])) echo $ligne['telephoneMobileRep']; ?></td>
+							<td><?php if(isset($ligne['mailRepresentant'])) echo $ligne['mailRepresentant']; ?></td>
+							<td><?php if(isset($ligne['adresseRepresentant'])) echo $ligne['adresseRepresentant']; ?></td>
+							<td><?php if(isset($ligne['cpRepresentant'])) echo $ligne['cpRepresentant']; ?></td>
+							<td><?php if(isset($ligne['villeRepresentant'])) echo $ligne['villeRepresentant']; ?></td>
+							<td><?php if(isset($ligne['photo'])) echo $ligne['photo']; ?></td>
+							<td><?php if(isset($ligne['NLicence']))  echo $ligne['NLicence']; ?></td>
+							<td><?php if(isset($ligne['pointsClassement'])) echo $ligne['pointsClassement']; ?></td>
+							<td><?php if(isset($ligne['categories'])) echo $ligne['categories']; ?></td>
+							<td><?php if(isset($ligne['EquipeNom'])) echo $ligne['EquipeNom']; ?></td>
+							<td><?php if(isset($ligne['nivResponsabilite'])) echo $ligne['nivResponsabilite']; ?></td>
+							<td><?php if(isset($ligne['MembresComite'])) echo $ligne['MembresComite']; ?></td>
+							<td><?php if(isset($ligne['payementAdhesion'])) echo $ligne['payementAdhesion']; ?></td>
 							<td><a href="index.php?page=formMembre&idMembres=<?php echo $ligne['idMembres']; ?>"><i class="fas fa-user-edit"></i></a></td>
 							<td>
 								<a id="supprimer" href="http://localhost/CPK/index.php?page=traitementSupprime&idMembres=<?php echo $ligne['idMembres']; ?>" onclick="return confirm('Voulez-vous supprimer --><?php echo $ligne['prenomMembre'] . ' ' . $ligne['nomMembre']; ?><--')">
