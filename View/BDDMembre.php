@@ -21,8 +21,6 @@
 	<?php
 
 	$requete = "SELECT * FROM membres";
-	// $requete = "SELECT * FROM `membres` INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant";
-	
 	$tblmb = $dbh->query($requete);
 
 	?>
@@ -32,7 +30,6 @@
 				<thead>
 					<tr>
 						<th scope="col">Id Membre</th>
-						<th scope="col">Password</th>
 						<th scope="col">Nom</th>
 						<th scope="col">Prénom</th>
 						<th scope="col">Date de Naissance</th>
@@ -65,11 +62,10 @@
 					
 					while ($ligne = $tblmb->fetch()) { ?>
 						<tr>
-							<td><?php  if(isset($ligne['idMembres'])) echo $ligne['idMembres']; ?></td>
-							<td><?php  if(isset($ligne['password'])) echo $ligne['password']; ?></td>
-							<td><?php  if(isset($ligne['nomMembre'])) echo $ligne['nomMembre']; ?></td>
+							<td><?php if(isset($ligne['idMembres'])) echo $ligne['idMembres']; ?></td>
+							<td><?php if(isset($ligne['nomMembre'])) echo $ligne['nomMembre']; ?></td>
 							<td><?php if(isset($ligne['prenomMembre'])) echo $ligne['prenomMembre']; ?></td>
-							<td><?php  if(isset($ligne['dateNaissance'])) echo $ligne['dateNaissance']; ?></td>
+							<td><?php if(isset($ligne['dateNaissance'])) echo $ligne['dateNaissance']; ?></td>
 							<td><?php if(isset($ligne['sexe'])) echo $ligne['sexe']; ?></td>
 							<td><?php if(isset($ligne['adresse'])) echo $ligne['adresse']; ?></td>
 							<td><?php if(isset($ligne['cp'])) echo $ligne['cp']; ?></td>

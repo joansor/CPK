@@ -7,13 +7,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
 
     if ($email !== "" && $password !== "") {
-        $requete = "SELECT DISTINCT mail , nivResponsabilite, password FROM membres where 
-              mail = '" . $email . "' and password = '" . $password . "' ";
+        // $requete = "SELECT DISTINCT mail , nivResponsabilite, password FROM membres where 
+        //       mail = '" . $email . "' and password = '" . $password . "' ";
+
+        $requete = "SELECT DISTINCT `mail`,`nivResponsabilite`,`password` FROM `membres` WHERE `mail`= '" . $email . "'";
 
         $exec_requete = $dbh->query($requete);
         $reponse = $exec_requete->fetch();
-
-        if ($reponse['mail'] === $email && $reponse['password'] ===  $password) { // nom d'utilisateur et mot de passe correctes
+       
+        if ($reponse['mail'] === $email && password_verify($password,$reponse['password'])) {
+             // nom d'utilisateur et mot de passe correctes
             session_start();
             $_SESSION["connected"] = true;
             $_SESSION['nivResponsabilite'] = $reponse['nivResponsabilite'];

@@ -11,7 +11,10 @@ if (isset($_POST['submbr'])) {
         $resultDate = $date->getTimestamp();
         var_dump($resultDate);
 
-        $requeteUpdateMembre = "UPDATE membres SET NLicence ='".$_POST['NLicence']."',pointsClassement = '".intval($_POST['pointsClassement'])."', nomMembre ='".$_POST['nomMembre']."', prenomMembre = '".$_POST['prenomMembre']."', sexe = '".$_POST['sexe']."', dateNaissance ='". $_POST['dateNaissance']."', adresse ='". $_POST['adresse']."', cp ='". $_POST['cp']."', ville ='". $_POST['ville']."',telephoneMobile ='". $_POST['telephoneMobile']."', mail='". $_POST['mail']."', photo ='".$_POST['photo']."', payementAdhesion = '" . intval($_POST['payementAdhesion']) . "', dateInscription = NULL, password ='". $_POST['password']."',telFixe='". $_POST['telFixe']."',MembresComite = NULL, nivResponsabilite = '".$_POST['nivResponsabilite']."' WHERE idMembres =". $_POST['idMembres'];
+        $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        var_dump($pass);
+
+        $requeteUpdateMembre = "UPDATE membres SET NLicence ='".$_POST['NLicence']."',pointsClassement = '".intval($_POST['pointsClassement'])."', nomMembre ='".$_POST['nomMembre']."', prenomMembre = '".$_POST['prenomMembre']."', sexe = '".$_POST['sexe']."', dateNaissance ='". $_POST['dateNaissance']."', adresse ='". $_POST['adresse']."', cp ='". $_POST['cp']."', ville ='". $_POST['ville']."',telephoneMobile ='". $_POST['telephoneMobile']."', mail='". $_POST['mail']."', photo ='".$_POST['photo']."', payementAdhesion = '" . intval($_POST['payementAdhesion']) . "', dateInscription = NULL, password ='".$pass."',telFixe='". $_POST['telFixe']."',MembresComite = NULL, nivResponsabilite = '".$_POST['nivResponsabilite']."' WHERE idMembres =". $_POST['idMembres'];
     
         if(isset($_POST['idRepresentant'])){
         
@@ -34,11 +37,28 @@ if (isset($_POST['submbr'])) {
         $dbh->query($requeteUpdateMembre);
 
         echo "Le membre a bien été modifié.<br/>";
-    } else {
+    }else{
+    
+        $requetVerif = "SELECT mail  FROM `membres` WHERE mail ='".$_POST['mail']."'";
+        
+        $resultVerif = $dbh->query($requetVerif);
 
-        // Si l'id du membre est <= à zéro, alors il n'existe pas, c'est un ajout
+        while($resultatVerifMail = $resultVerif->fetchAll()){
+
+            if($resultatVerifMail['mail'] === $_POST['mail']){
+
+                return "L'email existe déja !";
+            }
+        };
+
+      
+
+            $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            var_dump($pass);
+            
        
-       $requetAddMembre = "INSERT INTO `membres` (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('".$_POST['mail']."','" . $_POST['password'] . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "','".intval($_POST['pointsClassement'])."','".$_POST['nivResponsabilite']."',NULL,'" . intval($_POST['payementAdhesion']) . "')";
+                   
+       $requetAddMembre = "INSERT INTO `membres` (`mail`, `password`, `photo`, `nomMembre`, `prenomMembre`, `dateNaissance`, `sexe`, `adresse`, `cp`, `ville`, `telephoneMobile`, `telFixe`, `NLicence`, `pointsClassement`, `nivResponsabilite`, `MembresComite`, `payementAdhesion`) VALUES ('".$_POST['mail']."','" . $pass . "','" . $_POST['photo'] . "','" . $_POST['nomMembre'] . "','" . $_POST['prenomMembre'] . "','" . $_POST['dateNaissance'] . "','" . $_POST['sexe'] . "','" . $_POST['adresse'] . "','" . $_POST['cp'] . "','" . $_POST['ville'] . "','" . $_POST['telephoneMobile'] . "','" . $_POST['telFixe'] . "','" .$_POST['NLicence'] . "','".intval($_POST['pointsClassement'])."','".$_POST['nivResponsabilite']."',NULL,'" . intval($_POST['payementAdhesion']) . "')";
 
 
        if(isset($_POST['nomRepresentant'])){

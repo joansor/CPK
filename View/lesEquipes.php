@@ -2,7 +2,7 @@
 <br>
 <br>
 <?php
-$requeteListEquipe = "SELECT * FROM `equipes`"; // Récupere la liste des équipes
+$requeteListEquipe = "SELECT * FROM  equipes"; // Récupere la liste des équipes
 $executeListEquipe = $dbh->query($requeteListEquipe); // Execute la requête
 
 while ($resultListEquipe = $executeListEquipe->fetch()) { // Parcours les résultats de la requête
