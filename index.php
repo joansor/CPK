@@ -13,6 +13,8 @@
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.1.0/mdb.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/paginate.css">
+    <script src="assets/js/paginate.min.js"></script>
     <title>CPK</title>
 </head>
 <body>
