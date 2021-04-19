@@ -10,7 +10,6 @@
 			<label class="form-label" for="searchBox">Rechercher un membre</label>
 			</div>
 				<i class="fas fa-search"></i>
-		
 		</div>
 	</form>
 	<a class="btn btn-primary" style="margin-left: 2%;" href="index.php?page=formMembre">Créer un nouveau membre</a>
