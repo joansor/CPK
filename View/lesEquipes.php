@@ -1,4 +1,4 @@
-<h1>LES ÉQUIPES</h1>
+<h1 id="titreEquipe">LES ÉQUIPES</h1>
 <br>
 <br>
 <?php
@@ -12,15 +12,15 @@ while ($resultListEquipe = $executeListEquipe->fetch()) { // Parcours les résul
         <h2><?php echo $resultListEquipe['categories'] ?></h2>
     </div>
     <br>
-    <div id="support" class="container col-md-12 col-lg-12">
+    <div id="support" class="container col-md-12 col-lg-12 col-md-12 col-sd-12 col-12">
         <div class="row">
-            <div class="col-md-5 col-lg-5">
+            <div class="col-md-5 col-lg-5 col-sd-12 col-12 d-flex justify-content-center">
                 <img id="photoGroup" src="<?php echo $resultListEquipe['imageEquipe']; ?>" alt="photo Groupe">
                 <!--Récupère l'image de chaque équipe-->
             </div>
             <hr id="separation">
-            <div class="col-md-5 col-lg-5">
-                <h3 class="mt-4"><?php echo $resultListEquipe['EquipeNom']; //Récupère le nom de chaque équipe 
+            <div class="col-md-5 col-lg-5 col-sd-12 col-12">
+                <h3 class="nomEquipe"><?php echo $resultListEquipe['EquipeNom']; //Récupère le nom de chaque équipe 
                         ?></h3>
                 <?php
                 $idEquipe = $resultListEquipe['idEquipe']; // récupère l'id de l'equipe
@@ -34,13 +34,13 @@ while ($resultListEquipe = $executeListEquipe->fetch()) { // Parcours les résul
 
                     
                         <div class ="row mt-3">
-                            <div id="nomMembre" class="col-md-5"><?php
-                            echo $resultMembreEquipe['nomMembre'] . " " . $resultMembreEquipe['prenomMembre'];?> </div>
+                            <div id="nomMembre" class="col-md-6 col-lg-6 col-sd-6 col-6 pl-0"><?php
+                            echo $resultMembreEquipe['nomMembre'] . " " . $resultMembreEquipe['prenomMembre'];?></div>
                            <?php  if ($resultMembreEquipe['isCapitaine'] === "1") { ?>
-                                <div id="capt" class ="col-md-1">C</div>
+                                <div id="capt" class ="col-md-1 col-1 col-sd-1 col-lg-1">C</div>
                             <?php } ?>
                         </div>
-                   
+        
                 <?php } ?>
             </div>
         </div>

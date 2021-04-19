@@ -68,38 +68,41 @@
                 </article>
             </article>
         </div>
-        <div class="col-md-6">
+        <div class="container col-md-6">
             <table class="tableau-style">
-                <h1>
-                    <center>MATCH(S)</center>
-                </h1>
-                <thead>
-                    <tr>
-                        <th>Equipe 1</th>
-                        <th>
-                            <center>VS</center>
-                        </th>
-                        <th>Equipes 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Contenu</td>
-                        <td> VS </td>
-                        <td>Contenu</td>
-                    </tr>
-                    <tr>
-                        <td>Contenu</td>
-                        <td> VS </td>
-                        <td>Contenu</td>
-                    </tr>
-                    <tr>
-                        <td>Contenu</td>
-                        <td> VS </td>
-                        <td>Contenu</td>
-                    </tr>
-                    <tr>
-                </tbody>
+                <div class="container col-md-6 col-sd-6 d-flex justify-content-center">
+                    <h1>
+                        MATCH(S)
+                    </h1>
+
+                    <thead>
+                        <tr>
+                            <th>Equipe 1</th>
+                            <th>
+                                VS
+                            </th>
+                            <th>Equipes 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Contenu</td>
+                            <td> VS </td>
+                            <td>Contenu</td>
+                        </tr>
+                        <tr>
+                            <td>Contenu</td>
+                            <td> VS </td>
+                            <td>Contenu</td>
+                        </tr>
+                        <tr>
+                            <td>Contenu</td>
+                            <td> VS </td>
+                            <td>Contenu</td>
+                        </tr>
+                        <tr>
+                    </tbody>
+                </div>
             </table>
         </div>
     </div>

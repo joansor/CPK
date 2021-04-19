@@ -6,18 +6,15 @@
 	<form class="row gy-2 gx-3 align-items-center" style="margin: 2%; padding: 1%; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px; width: 30%">
 		<div class="input-group">
 			<div class="form-outline">
-			<input type="search" id="searchBox" class="form-control" placeholder="Filtrar...">
+			<input type="search" id="searchBox" class="form-control" placeholder="Filtrer...">
 			<label class="form-label" for="searchBox">Rechercher un membre</label>
 			</div>
-			<button type="button" class="btn btn-primary">
 				<i class="fas fa-search"></i>
-			</button>
-			<a class="btn btn-primary" style="margin-left: 2%;" href="index.php?page=formMembre">Créer un nouveau membre</a>
+		
 		</div>
 	</form>
-
+	<a class="btn btn-primary" style="margin-left: 2%;" href="index.php?page=formMembre">Créer un nouveau membre</a>
 	<!-- Bloc BDD Membres -->
-
 	<?php
 
 	$requete = "SELECT * FROM membres";
@@ -97,19 +94,19 @@
 					<?php } ?>
 				</tbody>
 			</table>
-			<script type="text/javascript">
-				let options = {
-					numberPerPage: 7, 
-					goBar: true, 
-					pageCounter: true,
-				};
-
-				let filterOptions = {
-					el: '#searchBox'
-				};
-
-				paginate.init('#myTable', options, filterOptions);
-			</script>
 		</div>
 	</div>
+	<script type="text/javascript">
+	let options = {
+		numberPerPage: 10, 
+		goBar: true, 
+		pageCounter: true,
+	};
+
+	let filterOptions = {
+		el: '#searchBox'
+	};
+
+	paginate.init('#myTable', options, filterOptions);
+</script>
 </div>
