@@ -17,15 +17,29 @@
     padding: 8px 0px 4px 0px;
   }
 }
-@media (max-width: 992px) {
-  .icons {
-    display: none;
-  }
-  .pContact {
-    text-align: left;
-  }
-}
 @media (max-width: 426px) {
+  /* footer */
+
+img.icons{
+  position: unset;
+  height: 20px;
+  width: 20px;
+  margin-bottom: 5px;
+}
+  p.pContact {
+    margin-left: 0px;
+    margin-bottom: 30px;
+  }
+  img#logoFacebook{
+    margin-top: 0px;
+    height: 40px;
+    width: 40px;
+  }
+  div#carouselExampleControls{
+    width: 70%;
+    left: 60px;
+  }
+/* equipe */
   #titreEquipe {
     margin-left: 30px;
   }
@@ -39,13 +53,16 @@
     margin-bottom: 15px;
     margin-top: 0px;
   }
-
+  .photoMembre {
+    position: absolute;
+    left: 30px;
+  }
   div#nomMembre {
     font-size: 12px;
-    margin-left: 60px;
+    margin-left: 50px;
   }
   div#support {
-    height: 440px;
+    height: 480px;
     width: 85%;
   }
   .container.col-md-12.col-lg-12 img#photoGroup {
@@ -65,6 +82,39 @@
   }
 }
 @media (min-width: 426px) and (max-width: 768px) {
+/* menu */
+li.nav-item a.nav-link{
+    font-size: 10px;
+}
+/* footer */
+img#logoFacebook{
+  width: 50px;
+  height: 50px;
+}
+h5.text-uppercase.contact{
+  width: 50px;
+  height: 50px;
+}
+p.pContact {
+  text-align: left;
+  font-size: 12px;
+}
+#containerContact{
+  padding-left: 0;
+  padding-right: 0;
+}
+#titreContact{
+  height: 30px;
+}
+img.icons{
+  position: absolute;
+  left: 60px;
+  height: 20px;
+  width: 20px;
+  
+}
+
+/* Equipe */
   .contact {
     margin-right: 10%;
   }
@@ -300,15 +350,17 @@ table {
 /************************************
   *********** Les équipes ***********
   ************************************/
-.nomEquipe{
-    margin-top: 20px;
+.nomEquipe {
+  margin-top: 20px;
 }
 #support {
-  height: 250px;
+  height: auto;
   border-radius: 20px;
   background-color: #f7f7f7;
 }
-
+.containerMembre{
+    position: relative;
+}
 img#photoGroup {
   width: 380px;
   height: 200px;
@@ -326,11 +378,11 @@ img#photoGroup {
   background: rgba(48, 71, 94, 0.452);
   border-radius: 1px;
 }
-
 #nomMembre {
   font-size: 14px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
-
 #capt {
   color: white;
   font-weight: bold;
@@ -339,7 +391,12 @@ img#photoGroup {
   height: 25px;
   text-align: center;
 }
-
+img.photoMembre {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  position: absolute;
+}
 /*************************************
   *********** espaceMembre ***********
   ***********************************/

@@ -1,11 +1,11 @@
 <footer class="text-white text-center text-lg-start">
   <!-- Grid container -->
-  <div class="container p-4 col-lg-12">
+  <div class="container p-4 col-lg-12 col-md-12 col-sd-12 col-12">
     <!--Grid row-->
     <div class="row justify-content-between">
       <!--Grid column-->
-      <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
-        <div class="d-flex justify-content-center">
+      <div id="containerContact" class="col-lg-4 col-md-4 col-sd-12 col-12 mb-4 mb-md-0">
+        <div id="titreContact" class="d-flex justify-content-center">
         <h5 class="text-uppercase contact">CONTACT</h5>
         </div>
         <br>
@@ -17,14 +17,14 @@
 
       <!--Grid column-->
 
-      <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+      <div class="col-lg-4 col-md-2 col-sd-12 col-12 mb-4 mb-md-0">
         <div class="d-flex justify-content-center">
           <a target="blank" href="https://fr-fr.facebook.com/pg/cpkingersheim/about/"><img id="logoFacebook" src="assets/images/facebook.png" alt="facebook"></a>
         </div>
       </div>
 
       <!--Grid column-->
-      <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+      <div id="containerPartenaire" class="col-lg-4 col-md-4 col-sd-12 col-12 mb-4 mb-md-0">
         <div class="d-flex justify-content-center">
           <h5 class="text-uppercase mb-0">PARTENAIRES</h5>
         </div>
