@@ -1,6 +1,6 @@
 <h1>Espace Membre</h1>
 <?php
-if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
+if (isset($_SESSION['mail']) && isset($_SESSION["connected"]) === true) {
 	$user = $_SESSION['mail'];
 	// afficher un message
 	echo "Bonjour " . $user . ", vous êtes connecté";
@@ -9,7 +9,7 @@ if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
 
 	$execute = $dbh->query($requete); // Execute la requête
 	while ($result = $execute->fetch()) { // Parcours les résultats de la requête
-?>
+	?>
 		<div class="d-flex justify-content-center">
 			<div id="profil" class="col-md-9 col-sd-9 row p-4">
 				<div class="col-md-1 col-sd-1 col-lg-1">
@@ -68,9 +68,10 @@ if (isset($_SESSION['mail']) && $_SESSION["connected"] === true) {
 				</table>
 			</div>
 		</div>
+		<br>
 		<!-- Bloc bouton accés BDD -->
 	<?php }
-	if ($_SESSION['mail'] && $_SESSION["connected"] === true && $_SESSION['nivResponsabilite'] === "Admin") {
+	if ($user && $_SESSION["connected"] === true && $_SESSION['nivResponsabilite'] === "Admin" || $_SESSION['nivResponsabilite'] === "Editeur") {
 	?>
 		<div class="container p-4 col-md-12 col-sd-12 col-lg-12 d-flex justify-content-center">
 			<div>

@@ -7,12 +7,12 @@ if (isset($_POST['submbr'])) {
     if ($_POST['idMembres'] > 0) {
         // Si l'id du membre est supérieur à zéro, alors il existe, donc c'est une modification
 
-        $date = new DateTime();
-        $resultDate = $date->getTimestamp();
-        var_dump($resultDate);
+        // $date = new DateTime();
+        // $resultDate = $date->getTimestamp();
+        // var_dump($resultDate);
 
         $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        var_dump($pass);
+       
 
         $requeteUpdateMembre = "UPDATE membres SET NLicence ='".$_POST['NLicence']."',pointsClassement = '".intval($_POST['pointsClassement'])."', nomMembre ='".$_POST['nomMembre']."', prenomMembre = '".$_POST['prenomMembre']."', sexe = '".$_POST['sexe']."', dateNaissance ='". $_POST['dateNaissance']."', adresse ='". $_POST['adresse']."', cp ='". $_POST['cp']."', ville ='". $_POST['ville']."',telephoneMobile ='". $_POST['telephoneMobile']."', mail='". $_POST['mail']."', photo ='".$_POST['photo']."', payementAdhesion = '" . intval($_POST['payementAdhesion']) . "', dateInscription = NULL, password ='".$pass."',telFixe='". $_POST['telFixe']."',MembresComite = NULL, nivResponsabilite = '".$_POST['nivResponsabilite']."' WHERE idMembres =". $_POST['idMembres'];
     
@@ -54,7 +54,7 @@ if (isset($_POST['submbr'])) {
       
 
             $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            var_dump($pass);
+          
             
        
                    
@@ -68,7 +68,6 @@ if (isset($_POST['submbr'])) {
         $dbh->query($requetAddRepresentant);
 
        }
-        var_dump($requetAddMembre);
 
         $dbh->query($requetAddMembre);
       
@@ -88,7 +87,7 @@ if (isset($_GET['idMembres'])) {
    
     $result = $dbh->query($requete);
     $tblresult = $result->fetchAll();
-    //var_dump($tblresult);
+    
 }
 
     // var_dump($tblresultEquipe);

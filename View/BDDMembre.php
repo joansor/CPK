@@ -20,7 +20,7 @@
 	$tblmb = $dbh->query($requete);
 
 	?>
-	<div class="p-5 text-center bg-image" style="margin: 2%; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px;">
+	<div id="containerTable" class="p-5 text-center bg-image" style="margin: 2%; background-color: #DADDE8; border: 1px solid #C4C4C4; box-sizing: border-box; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px;">
 		<div class="table-responsive">
 			<table id="myTable" class="table table-striped table-hover table-sm">
 				<thead>
@@ -84,10 +84,13 @@
 							<td><?php if (isset($ligne['payementAdhesion'])) echo $ligne['payementAdhesion']; ?></td>
 							<td><a href="index.php?page=formMembre&idMembres=<?php echo $ligne['idMembres']; ?>"><i class="fas fa-user-edit"></i></a></td>
 							<td>
+							<?php if (isset($_SESSION['mail']) && isset($_SESSION["connected"]) === true){  		if($_SESSION['nivResponsabilite'] === "Admin" || $_SESSION							['nivResponsabilite'] === "Editeur") {
+								?>
 
 								<a id="supprimer" href="http://localhost/CPK/index.php?page=traitementSupprime&idMembres=<?php echo $ligne['idMembres']; ?>" onclick="return confirm('Voulez-vous supprimer --><?php echo $ligne['prenomMembre'] . ' ' . $ligne['nomMembre']; ?><--')">
 									<i class="fas fa-trash-alt"></i>
 								</a>
+								<?php } } ?>
 							</td>
 						</tr>
 					<?php } ?>
@@ -95,9 +98,10 @@
 			</table>
 		</div>
 	</div>
-	<script type="text/javascript">
+</div>
+<script type="text/javascript">
 	let options = {
-		numberPerPage: 10, 
+		numberPerPage: 5, 
 		goBar: true, 
 		pageCounter: true,
 	};
@@ -108,4 +112,3 @@
 
 	paginate.init('#myTable', options, filterOptions);
 </script>
-</div>

@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -46,6 +47,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+        <?php if (isset($_SESSION['mail']) && isset($_SESSION["connected"]) === true) {
+                if($_SESSION['nivResponsabilite'] === "Admin" || $_SESSION['nivResponsabilite'] === "Editeur") {?>
+            <div class="container p-4 col-md-12 col-sd-12 col-lg-12 d-flex justify-content-center">
+			<div>
+				<a href="#"><button type="button" class="btn btn-primary" style="display: inline-block;"> Ajouter un Article</button></a>
+			</div>
+		</div>
+        <?php } } ?>
             <article class="forecast">
                 <h1>Articles</h1>
                 <article class="day-forecast">
