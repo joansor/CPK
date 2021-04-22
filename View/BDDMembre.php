@@ -97,6 +97,8 @@
 				</tbody>
 			</table>
 		</div>
+		<br>
+		<br>
 	</div>
 </div>
 <script type="text/javascript">

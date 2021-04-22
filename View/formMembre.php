@@ -65,9 +65,12 @@ if (isset($_POST['submbr'])) {
 
         $requetAddRepresentant = "INSERT INTO `representant`(nomRepresentant, prenomRepresentant, adresseRepresentant, cpRepresentant, villeRepresentant, telephoneMobileRep, mailRepresentant) VALUES ('".$_POST['nomRepresentant']."','".$_POST['prenomRepresentant']."','".$_POST['adresseRepresentant']."','".$_POST['cpRepresentant']."','".$_POST['villeRepresentant']."','".$_POST['telephoneMobileRep']."','".$_POST['mailRepresentant']."')";
 
+        
+
         $dbh->query($requetAddRepresentant);
 
        }
+
 
         $dbh->query($requetAddMembre);
       
@@ -82,7 +85,7 @@ if (isset($_GET['idMembres'])) {
     /*SELECTION des informations du membre ayant idMembres = $_GET['idMembres']*/
    // $requete = "SELECT * FROM `membres` WHERE `idMembres` = " . $_GET['idMembres'];
 
-    $requete = "SELECT * FROM membres INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant INNER JOIN datesdefonctions ON datesdefonctions.idDatesDeFonctions = membres.idMembres INNER JOIN fonctions ON fonctions.idFonction = datesdefonctions.Fonctions_idFonction WHERE membres.idMembres =" . $_GET['idMembres'];
+    $requete = "SELECT * FROM membres INNER JOIN joue ON joue.Membres_idMembres = membres.idMembres INNER JOIN equipes ON equipes.idEquipe = joue.Equipes_idEquipe INNER JOIN represente ON represente.idMembres = membres.idMembres INNER JOIN representant ON representant.idRepresentant = represente.idRepresentant INNER JOIN datesdefonctions ON datesdefonctions.Membres_idMembres  = membres.idMembres INNER JOIN fonctions ON fonctions.idFonction = datesdefonctions.Fonctions_idFonction WHERE membres.idMembres =" . $_GET['idMembres'];
 
    
     $result = $dbh->query($requete);

@@ -451,12 +451,10 @@ td {
 .fas.fa-trash-alt {
   color: #bd0e0e;
 }
-#containerTable{
-  position: relative;
-}
+
 #buttons{
 
   position: absolute;
-  top: 95%;
+  top: 85%;
   left: 35%;
 }
